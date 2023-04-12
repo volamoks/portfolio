@@ -5,7 +5,7 @@ export interface IIcon {
     id: number;
     name: string;
     component: JSX.Element;
-    size: number;
+    size?: number;
 }
 
 export interface IRefProps {
@@ -35,4 +35,12 @@ export interface IData {
     name: string;
     description: string;
     img: string;
+}
+
+export interface IRefsInContext {
+    greetingRef: React.RefObject<HTMLElement>;
+    stackRef: React.RefObject<HTMLElement>;
+    myProjectsRef: React.RefObject<HTMLElement>;
+    contactsRef: React.RefObject<HTMLElement>;
+    bannerRef: React.RefObject<HTMLElement>;
 }

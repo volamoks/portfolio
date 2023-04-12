@@ -31,7 +31,10 @@ export const ReactProjects = () => {
 
     return (
         <DarkContainer>
-            <div className="relative w-screen h-screen   ">
+            <div
+                id="myProjects"
+                className="relative w-screen h-screen   "
+            >
                 <div className="  h-full max-w-screen ">
                     <Carousel className="max-w-screen ">{slides}</Carousel>
                 </div>

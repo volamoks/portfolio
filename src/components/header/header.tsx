@@ -25,12 +25,12 @@ export const Header = ({ handleDarkMode, isDarkMode }: IHeader) => {
     const darkModeBtn = (
         <button
             onClick={handleDarkMode}
-            className="fixed left-6 top-6  "
+            className="fixed left-6 top-6  z-20"
         >
             {!isDarkMode ? (
                 <MdDarkMode
                     size={40}
-                    className=" text-gray-500"
+                    className=" text-gray-400"
                 />
             ) : (
                 <MdSunny
@@ -45,7 +45,7 @@ export const Header = ({ handleDarkMode, isDarkMode }: IHeader) => {
         <GiHamburgerMenu
             size={30}
             onClick={handleOpen}
-            className="fixed top-6 right-6 cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-red-500 hover:text-red-500"
+            className="fixed top-6 right-6 cursor-pointer text-gray-400 dark:text-gray-300 dark:hover:text-red-500 hover:text-red-500 z-20"
         />
     );
 

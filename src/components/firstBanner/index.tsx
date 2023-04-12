@@ -1,31 +1,44 @@
-import { LightContainer } from '@/components/containers';
-import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Glitch } from '../glitch';
 
+import { UseScrollDirections } from '@/hooks/useScrollDirection';
+import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
+
 interface IFirstBanner {
-    isScroll: boolean;
     myRef: React.RefObject<HTMLDivElement>;
 }
 
-export const FirstBanner = ({ isScroll, myRef }: IFirstBanner) => {
+export const FirstBanner = ({ myRef }: IFirstBanner) => {
+    const [isFirstRender, setIsFirstRender] = useState(true);
+    const { isScroll } = UseScrollDirections();
+
     const handleClick = () => {
         myRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    useEffect(() => {
+        setIsFirstRender(false);
+        const timer = setInterval(() => {
+            handleClick();
+        }, 5000);
+        return clearInterval(timer);
+    }, []);
+
     const helloElement = () => (
-        <div className="relative flex flex-col h-64 w-96 m-0 p-0  ">
+        <div
+            id="banner"
+            className="relative flex flex-col h-64 w-96 m-0 p-0  "
+        >
             <h1
                 className={`  top-0 h-12  text-clip overflow-hidden transition-all ${
-                    isScroll ? 'translate-x-[1000px]' : ' translate-x-0'
+                    isFirstRender || isScroll ? 'translate-x-[1000px]' : ' translate-x-0'
                 } duration-1000`}
             >
                 <span className="absolute  font-bold text-8xl">Hello</span>
             </h1>
             <div
                 className={`  bottom-0 h-12  overflow-hidden transition-all ${
-                    isScroll ? '-translate-x-[1000px]' : 'translate-x-0'
+                    isFirstRender || isScroll ? '-translate-x-[1000px]' : 'translate-x-0'
                 }  duration-1000 `}
             >
                 <span className="absolute bottom-0 font-bold text-8xl">Hello.</span>
@@ -36,7 +49,7 @@ export const FirstBanner = ({ isScroll, myRef }: IFirstBanner) => {
     return (
         <div
             ref={myRef}
-            className={` flex-col relative flex h-screen justify-center  items-center z-20 group overscroll-y-none  transition-all duration-1000 `}
+            className={` flex-col relative flex h-screen justify-center  items-center  group overscroll-y-none  transition-all duration-1000 `}
         >
             <div className="absolute">{helloElement()}</div>
             {!isScroll && <Glitch />}

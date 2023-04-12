@@ -1,5 +1,5 @@
 import { CSSProperties, useCallback, useContext } from 'react';
-import { navList } from '@/constants/constatnts';
+import { navList } from '../../constants';
 
 import { MdClose } from 'react-icons/md';
 import { MyContext } from '../mainPage';
@@ -19,7 +19,7 @@ export const SideBar = ({ handleOpen, isSidebarOpen }: ISideBar) => {
     }, []);
 
     const sidebarClasses = !isSidebarOpen
-        ? ' hidden '
+        ? ' hidden'
         : ' grid fixed top-0 bg-gray-100/[97%] dark:bg-gray-500/[97%]  h-screen w-screen items-center z-10';
 
     const sideBar = (

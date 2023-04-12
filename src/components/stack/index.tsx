@@ -1,8 +1,5 @@
-import { DarkContainer, LightContainer } from '@/components/containers';
-import { FC } from 'react';
-import { icons1, icons2, icons3 } from '../constatnts';
+import { icons1, icons2, icons3 } from '../../constants';
 
-import { JsxElement } from 'typescript';
 import { Underscore } from '../underscore';
 import { IRefProps } from '../../types';
 
@@ -44,9 +41,9 @@ export const Stack = ({ myRef }: IRefProps) => {
             ref={myRef}
             className="min-h-screen max-w-screen flex flex-col justify-around py-6"
         >
-            {fullCard('My stack', icons1(80))}
-            {fullCard('Love to use', icons2)}
-            {fullCard('On the way to know better', icons3)}
+            {fullCard('My stack', icons1(50))}
+            {fullCard('Love to use', icons2(50))}
+            {fullCard('On the way to know better', icons3(50))}
         </div>
     );
 };

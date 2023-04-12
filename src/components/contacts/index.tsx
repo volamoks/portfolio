@@ -1,27 +1,20 @@
 import React, { useContext } from 'react';
-import { DarkContainer, LightContainer } from '../containers';
 import { IconCard } from '../stack';
+import { IIcon, IRefProps } from '@/types';
+import { contactsIcons } from '@/constants';
+import { MyContext } from '../mainPage';
+import { MdKeyboardDoubleArrowUp } from 'react-icons/md';
 
-import { SiTwitter, SiGithub, SiTelegram, SiWhatsapp } from 'react-icons/si';
+export const Contacts = ({ myRef }: IRefProps) => {
+    const myValue = useContext(MyContext);
+    const { ref } = myValue ? myValue : { ref: null };
+    if (!ref) return null;
 
-interface IIcons {
-    id: number;
-    name: string;
-    component: JSX.Element;
-}
-const icons = [
-    {
-        id: 1,
-        name: 'Github',
-        component: <SiGithub size={30} />,
-    },
-    { id: 2, name: 'Twitter', component: <SiTwitter size={30} /> },
-    { id: 3, name: 'Telegram', component: <SiTelegram size={30} /> },
-    { id: 4, name: 'Whatsapp', component: <SiWhatsapp size={30} /> },
-];
+    const handleClick = () => {
+        ref.bannerRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
-export const Contacts = () => {
-    const card = (arr: IIcons[]) => {
+    const card = (arr: IIcon[]) => {
         return arr.map(icon => {
             return (
                 <IconCard
@@ -33,5 +26,21 @@ export const Contacts = () => {
         });
     };
 
-    return <div className="flex h-96 items-center">{card(icons)}</div>;
+    const goUpButton = (
+        <button onClick={handleClick}>
+            <MdKeyboardDoubleArrowUp size={30} />
+        </button>
+    );
+
+    return (
+        <>
+            <div
+                ref={myRef}
+                className="flex flex-col h-64 items-center w-full justify-between p-6"
+            >
+                {goUpButton}
+                <div className="flex gap-6">{card(contactsIcons)}</div>
+            </div>
+        </>
+    );
 };
