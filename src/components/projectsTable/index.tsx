@@ -1,6 +1,5 @@
-import { LightContainer } from '@/components/containers';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+
 import { Underscore } from '../underscore';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,10 +8,12 @@ import { projectsData } from '../../constants';
 import { FilterButtons } from '../filterButtons';
 import { IRefProps } from '../../types';
 import { useComponentInView } from '@/hooks/useComponentInView';
+import { useRouter } from 'next/router';
 
 export const ProjectTable = ({ myRef }: IRefProps) => {
     const [array, setArray] = useState(projectsData);
     const [selectedFilter, setSelectedFilter] = useState('all');
+    const router = useRouter();
 
     const filtersInView = useComponentInView('filters');
     const projectsInView = useComponentInView('projects');
@@ -35,6 +36,10 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
         setSelectedFilter(e.target.value.toLowerCase());
     };
 
+    const handleGoToPage = (id: string) => {
+        router.push(`/projects/${id}`);
+    };
+
     const project = array.map((item, i) => (
         <AnimatePresence key={item.id}>
             <motion.div
@@ -42,9 +47,12 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
-                className="bg-gray-500 dark:bg-gray-700 group shadow-2xl h-full w-full hover:shadow-gray-500 hover:shadow-2xl dark:shadow-gray-800 flex items-center"
+                className=" relative bg-gray-500 dark:bg-gray-700 group shadow-2xl h-full w-full hover:shadow-gray-500 hover:shadow-2xl dark:shadow-gray-800 flex items-center"
             >
-                <div className="absolute translate-y-0 group-hover:-translate-y-64 group-hover:lg:-translate-y-[220px] group-hover:bg-red-500 group-hover:text-white  transition-all duration-500 font-bold uppercase xl:text-4xl group-hover:text-2xl  pl-2">
+                <div
+                    className=" absolute translate-y-0 group-hover:-translate-y-64 group-hover:md:-translate-y-[350px] group-hover:lg:-translate-y-[230px] group-hover:bg-red-500 group-hover:text-white  
+                    transition-all duration-500 font-bold uppercase xl:text-4xl group-hover:text-2xl  pl-2 cursor-pointer"
+                >
                     <span>{item.name}</span>
                     <span className="text-red-500">_</span>
                     <div className="flex m-2 gap-2 ">
@@ -55,20 +63,19 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
                             ))}
                     </div>
                 </div>
-                <Image
+                <img
+                    onClick={() => handleGoToPage('1')}
                     className="opacity-0 group-hover:opacity-100 object-cover transition-all duration-500 cursor-pointer z-0 "
                     src="/asos.png"
                     alt="asos"
-                    width={500}
-                    height={400}
                 />
             </motion.div>
         </AnimatePresence>
     ));
 
-    const transitionClasses = filtersInView
-        ? 'translate-y-0 opacity-1'
-        : 'translate-y-[10vh] opacity-0';
+    const transitionClasses = (componentInView: boolean) =>
+        componentInView ? 'translate-y-0 opacity-1' : 'translate-y-[30vh] opacity-0';
+
     return (
         <div
             ref={myRef}
@@ -76,10 +83,12 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
         >
             <div
                 id={'filters'}
-                className={` transition-all duration-700 ${transitionClasses}`}
+                className={` transition-all duration-700 ${transitionClasses(
+                    filtersInView || projectsInView,
+                )}`}
             >
                 <h1 className=" py-12 text-5xl font-bold text-center uppercase">
-                    My work. To show what i can do
+                    My works. To show what i can do
                     <Underscore />
                 </h1>
 
@@ -97,7 +106,9 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
 
             <motion.div
                 id={'projects'}
-                className={`grid  md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 px-6 transition-all duration-700 ${transitionClasses}`}
+                className={`grid  md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 px-6 transition-all duration-700 ${transitionClasses(
+                    projectsInView,
+                )}`}
             >
                 {project}
             </motion.div>

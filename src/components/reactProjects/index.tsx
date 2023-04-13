@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Carousel } from 'flowbite-react';
-import { DarkContainer, LightContainer } from '../containers';
 
 import { IoIosArrowUp } from 'react-icons/io';
 
@@ -30,35 +29,33 @@ export const ReactProjects = () => {
     });
 
     return (
-        <DarkContainer>
+        <div
+            id="myProjects"
+            className="relative w-screen h-screen   "
+        >
+            <div className="  h-full max-w-screen ">
+                <Carousel className="max-w-screen ">{slides}</Carousel>
+            </div>
             <div
-                id="myProjects"
-                className="relative w-screen h-screen   "
+                className={`${modalClasses} absolute grid left-0 bottom-0 transition-all duration-[1500ms] bg-white hover text-2xl items-center`}
             >
-                <div className="  h-full max-w-screen ">
-                    <Carousel className="max-w-screen ">{slides}</Carousel>
-                </div>
-                <div
-                    className={`${modalClasses} absolute grid left-0 bottom-0 transition-all duration-[1500ms] bg-white hover text-2xl items-center`}
-                >
-                    <div className="relative p-4">
-                        <button>
-                            <IoIosArrowUp
-                                onClick={handleExpand}
-                                className={`absolute hover top-0 right-8 rotate-180 transition-all ${buttonsClasses}`}
-                                size={40}
-                            ></IoIosArrowUp>
-                        </button>
+                <div className="relative p-4">
+                    <button>
+                        <IoIosArrowUp
+                            onClick={handleExpand}
+                            className={`absolute hover top-0 right-8 rotate-180 transition-all ${buttonsClasses}`}
+                            size={40}
+                        ></IoIosArrowUp>
+                    </button>
 
-                        <h2 className="text-4xl uppercase font-bold mt-6">Asos clone </h2>
+                    <h2 className="text-4xl uppercase font-bold mt-6">Asos clone </h2>
 
-                        <p className={`text-xl my-4 italic ${isExpanded ? 'block' : 'hidden'}`}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime,
-                            voluptatum.
-                        </p>
-                    </div>
+                    <p className={`text-xl my-4 italic ${isExpanded ? 'block' : 'hidden'}`}>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime,
+                        voluptatum.
+                    </p>
                 </div>
             </div>
-        </DarkContainer>
+        </div>
     );
 };

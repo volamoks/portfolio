@@ -7,7 +7,6 @@ import { useComponentInView } from '@/hooks/useComponentInView';
 export const MyPath = () => {
     const isInView = useComponentInView('myPath');
 
-    console.log(isInView);
     const gridViewElem = data.map((item, i) => (
         <div
             key={item.id}
@@ -33,23 +32,25 @@ export const MyPath = () => {
     ));
 
     const carousel = (
-        <div className="w-[80vw] h-[90vh] relative">
+        <div className="h-[90vh] w-screen relative">
             <h1 className="uppercase text-2xl text-center font-bold py-8">
-                My Long Path to webdev
+                My Long Path to webdev<span className="text-red-500 ">_</span>
             </h1>
             <Carousel slideInterval={5000}>
                 {data.map((item, i) => (
-                    <>
-                        <Image
-                            alt={item.name}
-                            src={item.img}
-                            fill
-                        ></Image>
+                    <div className="w-screen relative flex flex-col">
+                        <div className="relative h-2/3 w-screen">
+                            <img
+                                alt={item.name}
+                                src={item.img}
+                                // fill
+                            ></img>
+                        </div>
                         <div className="uppercase text-xl text-start font-bold px-4 py-12">
                             {item.name}
                         </div>
                         <div className="text-xl text-start  p-4">{item.description}</div>
-                    </>
+                    </div>
                 ))}
             </Carousel>
         </div>
@@ -64,12 +65,9 @@ export const MyPath = () => {
             <div
                 className={`grid  w-[100vw] h-full transition-all  duration-[1500ms]  ${transitionClasses} `}
             >
-                {/* <div
-                    className={`hidden lg:grid w-[100vw] h-[200vh] bg-gray-600 dark:bg-gray-800  `}
-                ></div> */}
                 <div className={` hidden w-full  lg:grid relative py-8 transition-all `}>
-                    <h1 className="uppercase text-2xl text-center font-bold py-8">
-                        My Long Path to webdev
+                    <h1 className="uppercase text-5xl text-center font-bold py-12">
+                        My Long Path to webdev<span className="text-red-500 ">_</span>
                     </h1>
                     {gridViewElem}
                 </div>

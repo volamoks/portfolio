@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { MdDarkMode, MdSunny } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdClose } from 'react-icons/md';
 import { SideBar } from '../sidebar';
 
-interface IHeader {
-    handleDarkMode: () => void;
-    isDarkMode: boolean;
-}
+import { useDarkMode } from '../darkModeProvider';
 
-export const Header = ({ handleDarkMode, isDarkMode }: IHeader) => {
+export const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const { handleDarkMode, isDarkMode } = useDarkMode();
 
+    console.log(isDarkMode);
     useEffect(() => {
         document.body.style.overflow = isSidebarOpen ? 'hidden' : 'visible';
         return () => {
@@ -42,24 +42,21 @@ export const Header = ({ handleDarkMode, isDarkMode }: IHeader) => {
     );
 
     const hamburger = (
-        <GiHamburgerMenu
-            size={30}
+        <button
             onClick={handleOpen}
-            className="fixed top-6 right-6 cursor-pointer text-gray-400 dark:text-gray-300 dark:hover:text-red-500 hover:text-red-500 z-20"
-        />
+            className="fixed top-6 right-6 xl:left-[calc(100vw-64px)] cursor-pointer text-gray-400 dark:text-gray-300 dark:hover:text-red-500 hover:text-red-500 z-20"
+        >
+            {!isSidebarOpen ? <GiHamburgerMenu size={30} /> : <MdClose size={34} />}
+        </button>
     );
 
     return (
         <>
             <div className=" relative top-0  h-0 xl:h-0 flex justify-between bg-transparent z-10 ">
-                {isSidebarOpen && (
-                    <SideBar
-                        handleOpen={handleOpen}
-                        isSidebarOpen={isSidebarOpen}
-                    />
-                )}
+                {isSidebarOpen && <SideBar isSidebarOpen={isSidebarOpen} />}
                 {darkModeBtn}
                 {hamburger}
+                {/* {!isSidebarOpen && hamburger} */}
             </div>
         </>
     );

@@ -25,8 +25,6 @@ export interface ISideBar {
 }
 
 export interface IDarkModeProps {
-    isDarkMode: boolean;
-    handleDarkMode: () => void;
     children?: React.ReactNode;
 }
 

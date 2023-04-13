@@ -3,6 +3,7 @@ import { Glitch } from '../glitch';
 
 import { UseScrollDirections } from '@/hooks/useScrollDirection';
 import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
+import { useGoToPageByRef } from '@/hooks/useGoToPageByRef';
 
 interface IFirstBanner {
     myRef: React.RefObject<HTMLDivElement>;
@@ -12,14 +13,12 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
     const [isFirstRender, setIsFirstRender] = useState(true);
     const { isScroll } = UseScrollDirections();
 
-    const handleClick = () => {
-        myRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
+    const { ref, handleClick } = useGoToPageByRef();
 
     useEffect(() => {
         setIsFirstRender(false);
         const timer = setInterval(() => {
-            handleClick();
+            handleClick(ref?.greetingRef);
         }, 5000);
         return clearInterval(timer);
     }, []);
@@ -48,14 +47,14 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
 
     return (
         <div
-            ref={myRef}
+            ref={ref?.bannerRef as React.RefObject<HTMLDivElement>}
             className={` flex-col relative flex h-screen justify-center  items-center  group overscroll-y-none  transition-all duration-1000 `}
         >
             <div className="absolute">{helloElement()}</div>
             {!isScroll && <Glitch />}
             <button
                 className="absolute bottom-24"
-                onClick={handleClick}
+                onClick={() => handleClick(ref?.greetingRef)}
             >
                 <MdOutlineKeyboardDoubleArrowDown size={30} />
             </button>

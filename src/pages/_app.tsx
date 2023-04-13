@@ -1,4 +1,3 @@
-import { Layout } from '@/components/layout';
 import '@/styles/styles.css';
 
 import { store } from '@/utils/store/store';
@@ -7,6 +6,8 @@ import { Provider } from 'react-redux';
 import { Poppins } from 'next/font/google';
 
 import { StrictMode } from 'react';
+import React from 'react';
+import { DarkModeProvider } from '@/components/darkModeProvider';
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <StrictMode>
             <main className={poppins.className}>
                 <Provider store={store}>
-                    <Component {...pageProps} />
+                    <DarkModeProvider>
+                        <Component {...pageProps} />
+                    </DarkModeProvider>
                 </Provider>
             </main>
         </StrictMode>

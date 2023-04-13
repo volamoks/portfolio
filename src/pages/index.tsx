@@ -2,7 +2,16 @@ import Head from 'next/head';
 
 import styles from '@/styles/Home.module.css';
 import { MainPage } from '@/components/mainPage';
-import { useRef } from 'react';
+import { createContext } from 'react';
+
+import { DarkModeProvider } from '@/components/darkModeProvider';
+
+export const DarkModeContext = createContext<ICreateContext | null>(null);
+
+interface ICreateContext {
+    isDarkMode: boolean;
+    handleDarkMode: () => void;
+}
 
 export default function Home() {
     return (
@@ -23,8 +32,10 @@ export default function Home() {
                 />
             </Head>
             <main className={styles.main}>
-                <div className="relative max-w-screen   ">
-                    <MainPage />
+                <div className="relative max-w-screen">
+                    <DarkModeProvider>
+                        <MainPage />
+                    </DarkModeProvider>
                 </div>
             </main>
         </>

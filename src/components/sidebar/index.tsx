@@ -1,22 +1,25 @@
-import { CSSProperties, useCallback, useContext } from 'react';
-import { navList } from '../../constants';
+import { CSSProperties, useCallback } from 'react';
 
+import { navList } from '../../constants';
 import { MdClose } from 'react-icons/md';
-import { MyContext } from '../mainPage';
+
+import { useGoToPageByRef } from '@/hooks/useGoToPageByRef';
 
 interface ISideBar {
-    handleOpen: () => void;
     isSidebarOpen: boolean;
 }
-export const SideBar = ({ handleOpen, isSidebarOpen }: ISideBar) => {
-    const myValue = useContext(MyContext);
-    const { ref } = myValue ? myValue : { ref: null };
-    if (!ref) return null;
+export const SideBar = ({ isSidebarOpen }: ISideBar) => {
+    const { ref, handleClick } = useGoToPageByRef();
+    if (ref === null) return <div></div>;
 
-    const handleClick = useCallback((ref: React.RefObject<HTMLElement>) => {
-        handleOpen();
-        ref.current?.scrollIntoView({ behavior: 'smooth' });
-    }, []);
+    const handleGo = useCallback(
+        (ref: any) => {
+            handleClick(ref);
+        },
+        [handleClick],
+    );
+
+    const dataArr = navList(ref);
 
     const sidebarClasses = !isSidebarOpen
         ? ' hidden'
@@ -26,9 +29,9 @@ export const SideBar = ({ handleOpen, isSidebarOpen }: ISideBar) => {
         <ul
             className={`sticky top-0 grid gap-4 w-64 text-4xl uppercase items-center font-bold mx-auto`}
         >
-            {navList(ref).map((link, i) => (
+            {dataArr?.map((link, i) => (
                 <li
-                    onClick={() => handleClick(link.ref)}
+                    // onClick={() => handleGo(link?.ref)}
                     key={i}
                     className="animate_transition_slide text-gray-500 dark:text-gray-200 text-center --transition-duration': `${1 + i * 0.2}s` 
                             group cursor-pointer "
@@ -43,14 +46,5 @@ export const SideBar = ({ handleOpen, isSidebarOpen }: ISideBar) => {
         </ul>
     );
 
-    return (
-        <div className={`transition-all z-20 duration-300 ${sidebarClasses}`}>
-            {sideBar}
-            <MdClose
-                onClick={handleOpen}
-                size={30}
-                className="absolute top-6 right-8 text-bold text-gray-500 dark:text-gray-200 cursor-pointer"
-            />
-        </div>
-    );
+    return <div className={`transition-all z-10 duration-300 ${sidebarClasses}`}>{sideBar}</div>;
 };
