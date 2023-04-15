@@ -3,22 +3,33 @@ import { IProjectData } from '@/types';
 import React from 'react';
 import Image from 'next/image';
 import { useGoToPage } from '@/hooks/useGoToPage';
+import { useNavigateById } from '@/hooks/useNavigateById';
+import { useGoToPageByRef } from '@/hooks/useGoToPageByRef';
+import { Spinner } from 'flowbite-react';
 
-export const RelatedProjects = ({ id }: { id: number }) => {
+interface IRelatedProjects {
+    id: number;
+    handleGoToById: (id: string) => void;
+}
+
+export const RelatedProjects = ({ id, handleGoToById }: IRelatedProjects) => {
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
+
     const { handleGoToPage } = useGoToPage();
-    if (isLoading) return <div>Loading..</div>;
 
     const goto = (id: number) => {
         handleGoToPage('/' + id);
+        handleGoToById('myProject');
     };
+
+    if (isLoading) return <Spinner />;
 
     const related = data
         .filter(item => data[id]?.relatedProjects.includes(item.id))
         .map((item, i) => (
             <div
                 key={item.id + 'related'}
-                onClick={() => goto(item.id)}
+                onClick={() => handleGoToPage(item.id + '')}
                 className=" relative xl:h-2/3 h-full w-[92%] hover:scale-110 transition-all duration-500 ease-in-out mx-auto"
             >
                 <h1>{item.name}</h1>

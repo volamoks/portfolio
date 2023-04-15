@@ -25,7 +25,7 @@ export const Header = () => {
     const darkModeBtn = (
         <button
             onClick={handleDarkMode}
-            className="fixed left-6 top-6 z-20 text-gray-300"
+            className="absolute left-6 top-6 z-20 text-gray-400"
         >
             {!isDarkMode ? <MdDarkMode size={40} /> : <MdSunny size={40} />}
         </button>
@@ -34,7 +34,7 @@ export const Header = () => {
     const hamburger = (
         <button
             onClick={handleOpen}
-            className="fixed top-6 right-6 xl:left-[calc(100vw-64px)] cursor-pointer text-gray-400 dark:text-gray-300 xl:dark:hover:text-red-500 xl:hover:text-red-500 z-20"
+            className="absolute top-6 right-6 xl:left-[calc(100vw-64px)] cursor-pointer text-gray-400 dark:text-gray-300 xl:dark:hover:text-red-500 xl:hover:text-red-500 z-20"
         >
             {!isSidebarOpen ? <GiHamburgerMenu size={30} /> : <MdClose size={34} />}
         </button>
@@ -52,6 +52,7 @@ export const Header = () => {
                 {darkModeBtn}
                 {hamburger}
                 <SideButtons />
+                {/* {!isSidebarOpen && hamburger} */}
             </div>
         </>
     );

@@ -90,8 +90,11 @@ export const FilterButtons = ({
     ));
 
     return (
-        <div className="flex flex-col justify-center mt-12 xl:mb-8">
-            <motion.div className="hidden lg:flex justify-around  ">{iconsTypeList}</motion.div>
+        <div
+            id="stack"
+            className="flex flex-col justify-center mt-12 xl:mb-8"
+        >
+            <motion.div className="hidden lg:flex justify-around">{iconsTypeList}</motion.div>
 
             <div className="hidden lg:flex  w-[100vw] bg-gray-500 dark:bg-gray-600 mb-1">
                 {buttons(filteredData)}

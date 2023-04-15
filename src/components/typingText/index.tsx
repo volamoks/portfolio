@@ -6,8 +6,8 @@ export const TypingText = () => {
         <Typewriter
             onInit={typewriter => {
                 typewriter
-                    .pauseFor(1500)
-                    .typeString('<span>Hi, my name is Saidabror')
+                    .pauseFor(500)
+                    .typeString('<span>Hi, I am Saidabror')
                     .pauseFor(300)
                     .deleteChars(9)
                     .typeString('<span style="text-red-500;">Abror</span><span>')
@@ -29,5 +29,9 @@ export const TypingText = () => {
         />
     );
 
-    return <h1 className="text-white font-bold text-5xl uppercase flex flex-col">{typingName}</h1>;
+    return (
+        <h1 className="text-white font-bold text-4xl xl:text-5xl uppercase flex flex-col">
+            {typingName}
+        </h1>
+    );
 };

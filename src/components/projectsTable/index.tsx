@@ -88,6 +88,7 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
 
     return (
         <div
+            id="projects"
             ref={myRef}
             className="min-h-screen py-12"
         >
@@ -115,7 +116,6 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
             </div>
 
             <motion.div
-                id={'projects'}
                 className={`grid min-h-screen md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 px-6 transition-all duration-700 ${transitionClasses(
                     projectsInView,
                 )}`}

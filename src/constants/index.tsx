@@ -20,11 +20,11 @@ import {
 } from 'react-icons/si';
 import { IData, IIcon } from '../types';
 
-export const navList = (ref: IRefsInContext) => [
-    { id: 1, name: 'about', ref: ref.bannerRef },
-    { id: 2, name: 'skills', ref: ref.stackRef },
-    { id: 3, name: 'projects', ref: ref.myProjectsRef },
-    { id: 4, name: 'contact', ref: ref.contactsRef },
+export const navList = [
+    { id: 1, name: 'about', sectionID: 'greeting' },
+    { id: 2, name: 'skills', sectionID: 'stack' },
+    { id: 3, name: 'projects', sectionID: 'projects' },
+    { id: 4, name: 'contact', sectionID: 'contacts' },
 ];
 
 export const projectsData = [

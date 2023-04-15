@@ -3,7 +3,6 @@ import { Glitch } from '../glitch';
 
 import { UseScrollDirections } from '@/hooks/useScrollDirection';
 import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
-import { useGoToPageByRef } from '@/hooks/useGoToPageByRef';
 
 interface IFirstBanner {
     myRef: React.RefObject<HTMLDivElement>;
@@ -13,21 +12,20 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
     const [isFirstRender, setIsFirstRender] = useState(true);
     const { isScroll } = UseScrollDirections();
 
-    const { ref, handleClick } = useGoToPageByRef();
+    const handleClick = () => {
+        document.getElementById('greeting')?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     useEffect(() => {
         setIsFirstRender(false);
         const timer = setInterval(() => {
-            handleClick(ref?.greetingRef);
+            handleClick();
         }, 5000);
         return clearInterval(timer);
     }, []);
 
     const helloElement = () => (
-        <div
-            id="banner"
-            className="relative flex flex-col h-64 w-96 m-0 p-0  "
-        >
+        <div className="relative flex flex-col h-64 w-96 m-0 p-0  ">
             <h1
                 className={`  top-0 h-12  text-clip overflow-hidden transition-all ${
                     isFirstRender || isScroll ? 'translate-x-[1000px]' : ' translate-x-0'
@@ -47,14 +45,13 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
 
     return (
         <div
-            ref={ref?.bannerRef as React.RefObject<HTMLDivElement>}
             className={` flex-col relative flex h-screen justify-center  items-center  group overscroll-y-none  transition-all duration-1000 `}
         >
             <div className="absolute">{helloElement()}</div>
             {!isScroll && <Glitch />}
             <button
                 className="absolute bottom-24"
-                onClick={() => handleClick(ref?.greetingRef)}
+                onClick={handleClick}
             >
                 <MdOutlineKeyboardDoubleArrowDown size={30} />
             </button>
