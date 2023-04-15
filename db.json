@@ -7,7 +7,7 @@
             "web_link": 1,
             "isResponsive": true,
             "frameworks": ["HTML5", "SASS", "JavaScript", "React"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["marvel/1.png", "marvel/2.png", "marvel/3.png"],
             "relatedProjects": [1, 2],
             "about": ""
@@ -19,7 +19,7 @@
             "web_link": "https://one-music-six.vercel.app/featured-playlists",
             "isResponsive": true,
             "frameworks": ["HTML5", "Tailwind CSS", "TypeScript", "React", "Redux"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["oneMusic/1.png", "oneMusic/2.png", "oneMusic/3.png", "oneMusic/4.png"],
             "relatedProjects": [1, 2]
         },
@@ -30,7 +30,7 @@
             "web_link": "https://heroes-panel-app.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "Bootstrap", "JavaScript", "React", "Redux"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["heroPanel/1.png"],
             "about": "",
             "relatedProjects": [1, 2]
@@ -42,7 +42,7 @@
             "web_link": "https://one-music-six.vercel.app/featured-playlists",
             "isResponsive": false,
             "frameworks": ["HTML5", "SASS", "JavaScript"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["forkify/.png"],
             "about": "",
             "relatedProjects": [1, 2]
@@ -54,7 +54,7 @@
             "web_link": "https://pig-gamel.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "CSS3", "JavaScript"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["pig/1.png", "pig/2.png"],
             "about": "",
             "relatedProjects": [1, 2]
@@ -66,7 +66,7 @@
             "web_link": "https://can-guess-number.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "CSS3", "JavaScript"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["guessNumber/1.png", "guessNumber/.png"],
             "about": "",
             "relatedProjects": [1, 2]
@@ -87,7 +87,7 @@
                 "MongoDB",
                 "Prisma"
             ],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": [
                 "asos/1.png",
                 "asos/2.png",
@@ -106,7 +106,7 @@
             "web_link": "https://its-2048.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML", "CSS3", "JavaScript"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["2048/1.png", "2048/2.png"],
             "about": "",
             "relatedProjects": [1, 2]
@@ -118,7 +118,7 @@
             "web_link": "https://its-2048.vercel.app/",
             "isResponsive": true,
             "frameworks": ["HTML", "Tailwind CSS", "TypeScript", "React", "Redux", "Next.js"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["2048/1.png", "2048/2.png"],
             "about": "",
             "relatedProjects": [1, 2]
@@ -132,7 +132,7 @@
             "web_link": "https://pig-gamel.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "CSS3", "JavaScript"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["pig/1.png", "pig/2.png"],
             "about": ""
         },
@@ -143,7 +143,7 @@
             "web_link": "https://heroes-panel-app.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "Bootstrap", "JavaScript", "React", "Redux"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["heroPanel/1.png"],
             "about": ""
         },
@@ -154,7 +154,7 @@
             "web_link": "https://one-music-six.vercel.app/featured-playlists",
             "isResponsive": true,
             "frameworks": ["HTML5", "Tailwind CSS", "TypeScript", "React", "Redux"],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["oneMusic/1.png", "oneMusic/2.png", "oneMusic/3.png", "oneMusic/4.png"],
             "relatedProjects": [1, 2]
         },
@@ -174,7 +174,7 @@
                 "MongoDB",
                 "Prisma"
             ],
-            "description": "",
+            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": [
                 "asos/1.png",
                 "asos/2.png",

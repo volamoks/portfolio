@@ -54,11 +54,11 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
                     animate={{ opacity: 1 }}
                     initial={{ opacity: 0 }}
                     exit={{ opacity: 0 }}
-                    className=" relative bg-gray-500 dark:bg-gray-700 group shadow-2xl min-h-[31vw] w-full hover:shadow-gray-500 hover:shadow-2xl dark:shadow-gray-800 flex flex-cols items-center"
+                    className=" relative  flex flex-col items-start justify-center group shadow-2xl min-h-[31vw] w-full xl:bg-gray-500 dark:xl:bg-gray-700  hover:shadow-gray-500 hover:shadow-2xl dark:shadow-gray-800 xl:items-start"
                 >
                     <div
-                        className=" absolute translate-y-0 group-hover:-translate-y-84 group-hover:xl:-translate-y-[278px] group-hover:lg:-translate-y-[230px] group-hover:bg-red-500 group-hover:text-white  
-                    transition-all duration-500 font-bold uppercase xl:text-4xl group-hover:text-2xl  pl-2 cursor-pointer"
+                        className=" relative xl:absolute  bg-red-500 text-white  xl:bg-transparent xl:translate-y-0  xl:group-hover:-translate-y-[278px]  group-hover:bg-red-500 group-hover:text-white  
+                    transition-all duration-500 font-bold uppercase xl:text-4xl xl:group-hover:text-2xl  pl-2 cursor-pointer"
                     >
                         <span>{item.name}</span>
                         <span className="text-red-500">_</span>
@@ -70,10 +70,10 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
                                 ))}
                         </div>
                     </div>
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-[calc(80vw)] xl:h-full">
                         <Image
                             onClick={() => handleGoToPage(item.id + '')}
-                            className="opacity-0 group-hover:opacity-100 object-cover transition-all duration-500 cursor-pointer z-0 "
+                            className="xl:opacity-0 group-hover:xl:opacity-100 object-cover transition-all duration-500 cursor-pointer z-0 "
                             src={`/${item.images?.at(0)}  `}
                             alt={item.name}
                             fill

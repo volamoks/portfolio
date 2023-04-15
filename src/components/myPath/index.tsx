@@ -41,18 +41,18 @@ export const MyPath = () => {
                 My Long Path to webdev<span className="text-red-500 ">_</span>
             </h1>
             <Carousel slideInterval={5000}>
-                {data.map((item, i) => (
+                {myPathProject.map((item, i) => (
                     <div
                         key={item.id}
-                        className="w-screen relative flex flex-col"
+                        className="w-screen relative flex flex-col justify-start"
                     >
-                        <div className="relative h-2/3 w-screen">
-                            <img
-                                alt={item.name}
-                                src={item.img}
-                                // fill
-                            ></img>
-                        </div>
+                        <Image
+                            alt={item.name}
+                            src={'/' + item.images[0]}
+                            width={820}
+                            height={700}
+                        ></Image>
+
                         <div className="uppercase text-xl text-start font-bold px-4 py-12">
                             {item.name}
                         </div>

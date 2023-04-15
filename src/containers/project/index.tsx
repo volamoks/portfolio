@@ -22,8 +22,11 @@ export const ProjectPage: FC = () => {
     const currentProject = data.filter(item => item.id === projectId)[0];
 
     const handleGoto = () => {
-        router.push('/');
-        handleClick(ref?.contactsRef);
+        const query = { ref: 'contactsRef' };
+        router.push({
+            pathname: '/',
+            query: query,
+        });
     };
 
     if (isLoading) return <div>Loading... </div>;

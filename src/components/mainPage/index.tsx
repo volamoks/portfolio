@@ -51,7 +51,7 @@ export const MainPage = () => {
                         key={nanoid()}
                         nth={i}
                     >
-                        {item.component}
+                        <div className="overflow-x-hidden">{item.component}</div>
                     </Layout>
                 ))}
             </MyContext.Provider>
