@@ -5,12 +5,12 @@ import { MdClose } from 'react-icons/md';
 import { SideBar } from '../sidebar';
 
 import { useDarkMode } from '../darkModeProvider';
+import { SideButtons } from '../sideButtons';
 
 export const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const { handleDarkMode, isDarkMode } = useDarkMode();
 
-    console.log(isDarkMode);
     useEffect(() => {
         document.body.style.overflow = isSidebarOpen ? 'hidden' : 'visible';
         return () => {
@@ -25,19 +25,9 @@ export const Header = () => {
     const darkModeBtn = (
         <button
             onClick={handleDarkMode}
-            className="fixed left-6 top-6  z-20"
+            className="fixed left-6 top-6 z-20 text-gray-300"
         >
-            {!isDarkMode ? (
-                <MdDarkMode
-                    size={40}
-                    className=" text-gray-400"
-                />
-            ) : (
-                <MdSunny
-                    size={40}
-                    className="text-gray-300"
-                />
-            )}
+            {!isDarkMode ? <MdDarkMode size={40} /> : <MdSunny size={40} />}
         </button>
     );
 
@@ -52,10 +42,16 @@ export const Header = () => {
 
     return (
         <>
-            <div className=" relative top-0  h-0 xl:h-0 flex justify-between bg-transparent z-10 ">
-                {isSidebarOpen && <SideBar isSidebarOpen={isSidebarOpen} />}
+            <div className=" absolute top-0 w-full h-20 flex justify-between-10 ">
+                {isSidebarOpen && (
+                    <SideBar
+                        isSidebarOpen={isSidebarOpen}
+                        setIsSidebarOpen={setIsSidebarOpen}
+                    />
+                )}
                 {darkModeBtn}
                 {hamburger}
+                <SideButtons />
                 {/* {!isSidebarOpen && hamburger} */}
             </div>
         </>

@@ -7,18 +7,20 @@ import { useGoToPageByRef } from '@/hooks/useGoToPageByRef';
 
 interface ISideBar {
     isSidebarOpen: boolean;
+    setIsSidebarOpen: (value: boolean) => void;
 }
-export const SideBar = ({ isSidebarOpen }: ISideBar) => {
+export const SideBar = ({ isSidebarOpen ,   setIsSidebarOpen}: ISideBar) => {
     const { ref, handleClick } = useGoToPageByRef();
-    if (ref === null) return <div></div>;
 
     const handleGo = useCallback(
         (ref: any) => {
             handleClick(ref);
+            setIsSidebarOpen(false);
         },
-        [handleClick],
+        [handleClick, setIsSidebarOpen],
     );
 
+    if (ref === null) return <div></div>;
     const dataArr = navList(ref);
 
     const sidebarClasses = !isSidebarOpen
@@ -31,7 +33,7 @@ export const SideBar = ({ isSidebarOpen }: ISideBar) => {
         >
             {dataArr?.map((link, i) => (
                 <li
-                    // onClick={() => handleGo(link?.ref)}
+                    onClick={() => handleGo(link?.ref)}
                     key={i}
                     className="animate_transition_slide text-gray-500 dark:text-gray-200 text-center --transition-duration': `${1 + i * 0.2}s` 
                             group cursor-pointer "

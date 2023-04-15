@@ -1,3 +1,4 @@
+import { RelatedProjects } from './../components/relatedProjects/index';
 import React from 'react';
 import { SideBar } from '../components/sidebar/index';
 
@@ -41,4 +42,17 @@ export interface IRefsInContext {
     myProjectsRef: React.RefObject<HTMLElement>;
     contactsRef: React.RefObject<HTMLElement>;
     bannerRef: React.RefObject<HTMLElement>;
+}
+
+export interface IProjectData {
+    id: number;
+    name: string;
+    github: string;
+    web_link?: string;
+    isResponsive: false;
+    frameworks: string[];
+    description: string;
+    images: string[];
+    about: string;
+    relatedProjects: number[];
 }

@@ -79,6 +79,7 @@ export const FilterButtons = ({
 
     const iconsTypeList = dataArr.map(type => (
         <button
+            key={type.id}
             onClick={e => handleClickFilterType(e, type.id)}
             className={`w-full flex justify-around uppercase  p-2 xl:p-6 text-xl xl:text-2xl font-bold ${
                 filtersType === type.id ? 'bg-gray-500  dark:bg-gray-600' : ''

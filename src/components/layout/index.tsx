@@ -19,10 +19,9 @@ export const Layout: React.FC<ILayoutProps> = ({ nth, children }) => {
             : 'bg-gray-200 dark:bg-gray-600 text-gray-500 dark:text-gray-200 ';
 
     return (
-        <div className={`relative ${isDarkMode ? 'dark' : ''}`}>
-            <SideButtons />
+        <div className={`relative  ${isDarkMode ? 'dark' : ''}`}>
             <Header />
-            <div className={`transition-all duration-1000 ${modeClasses}`}>{children}</div>
+            <div className={`transition-all duration-1000 relative ${modeClasses}`}>{children}</div>
         </div>
     );
 };

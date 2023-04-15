@@ -8,7 +8,7 @@ export const SideButtons = () => {
     const { ref, handleClick } = useGoToPageByRef();
 
     return (
-        <div className="fixed right-0 translate-y-[65vh] z-20">
+        <div className="fixed right-0 translate-y-[65vh] z-10">
             <div className=" w-64 sticky bottom-0 flex flex-col items-end gap-2">
                 <button
                     onClick={() => handleClick(ref?.myProjectsRef)}

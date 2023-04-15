@@ -4,29 +4,35 @@ import { Underscore } from '../underscore';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { icons1 } from '../../constants';
-import { projectsData } from '../../constants';
+
 import { FilterButtons } from '../filterButtons';
-import { IRefProps } from '../../types';
+import { IProjectData, IRefProps } from '../../types';
 import { useComponentInView } from '@/hooks/useComponentInView';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+
+import { useFetchData } from '@/hooks/useLocalData';
 
 export const ProjectTable = ({ myRef }: IRefProps) => {
-    const [array, setArray] = useState(projectsData);
+    const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
+    const [array, setArray] = useState(data);
     const [selectedFilter, setSelectedFilter] = useState('all');
     const router = useRouter();
 
     const filtersInView = useComponentInView('filters');
     const projectsInView = useComponentInView('projects');
 
+    const iconsSize = 30;
+
     useEffect(() => {
         selectedFilter === 'all'
-            ? setArray(projectsData)
+            ? setArray(data)
             : setArray(
-                  projectsData.filter(item =>
+                  data.filter(item =>
                       item.frameworks.map(elem => elem.toLowerCase()).includes(selectedFilter),
                   ),
               );
-    }, [selectedFilter]);
+    }, [selectedFilter, data]);
 
     const handleClick = (name: string) => {
         setSelectedFilter(name.toLowerCase());
@@ -37,41 +43,45 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
     };
 
     const handleGoToPage = (id: string) => {
-        router.push(`/projects/${id}`);
+        router.push(`/${id}`);
     };
 
-    const project = array.map((item, i) => (
-        <AnimatePresence key={item.id}>
-            <motion.div
-                layout
-                animate={{ opacity: 1 }}
-                initial={{ opacity: 0 }}
-                exit={{ opacity: 0 }}
-                className=" relative bg-gray-500 dark:bg-gray-700 group shadow-2xl h-full w-full hover:shadow-gray-500 hover:shadow-2xl dark:shadow-gray-800 flex items-center"
-            >
-                <div
-                    className=" absolute translate-y-0 group-hover:-translate-y-64 group-hover:md:-translate-y-[350px] group-hover:lg:-translate-y-[230px] group-hover:bg-red-500 group-hover:text-white  
-                    transition-all duration-500 font-bold uppercase xl:text-4xl group-hover:text-2xl  pl-2 cursor-pointer"
+    const project = (arr: IProjectData[]) =>
+        arr.map((item, i) => (
+            <AnimatePresence key={item.id}>
+                <motion.div
+                    layout
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    className=" relative bg-gray-500 dark:bg-gray-700 group shadow-2xl min-h-[31vw] w-full hover:shadow-gray-500 hover:shadow-2xl dark:shadow-gray-800 flex flex-cols items-center"
                 >
-                    <span>{item.name}</span>
-                    <span className="text-red-500">_</span>
-                    <div className="flex m-2 gap-2 ">
-                        {icons1(30)
-                            .filter(icon => item.frameworks.includes(icon.name))
-                            .map((icon, i) => (
-                                <div key={icon.id}>{icon.component}</div>
-                            ))}
+                    <div
+                        className=" absolute translate-y-0 group-hover:-translate-y-84 group-hover:xl:-translate-y-[278px] group-hover:lg:-translate-y-[230px] group-hover:bg-red-500 group-hover:text-white  
+                    transition-all duration-500 font-bold uppercase xl:text-4xl group-hover:text-2xl  pl-2 cursor-pointer"
+                    >
+                        <span>{item.name}</span>
+                        <span className="text-red-500">_</span>
+                        <div className="flex m-2 gap-2 ">
+                            {icons1(iconsSize)
+                                .filter(icon => item.frameworks.includes(icon.name))
+                                .map((icon, i) => (
+                                    <div key={icon.id}>{icon.component}</div>
+                                ))}
+                        </div>
                     </div>
-                </div>
-                <img
-                    onClick={() => handleGoToPage('1')}
-                    className="opacity-0 group-hover:opacity-100 object-cover transition-all duration-500 cursor-pointer z-0 "
-                    src="/asos.png"
-                    alt="asos"
-                />
-            </motion.div>
-        </AnimatePresence>
-    ));
+                    <div className="relative w-full h-full">
+                        <Image
+                            onClick={() => handleGoToPage(item.id + '')}
+                            className="opacity-0 group-hover:opacity-100 object-cover transition-all duration-500 cursor-pointer z-0 "
+                            src={`/${item.images?.at(0)}  `}
+                            alt={item.name}
+                            fill
+                        />
+                    </div>
+                </motion.div>
+            </AnimatePresence>
+        ));
 
     const transitionClasses = (componentInView: boolean) =>
         componentInView ? 'translate-y-0 opacity-1' : 'translate-y-[30vh] opacity-0';
@@ -106,11 +116,11 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
 
             <motion.div
                 id={'projects'}
-                className={`grid  md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 px-6 transition-all duration-700 ${transitionClasses(
+                className={`grid min-h-screen md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 px-6 transition-all duration-700 ${transitionClasses(
                     projectsInView,
                 )}`}
             >
-                {project}
+                {project(array)}
             </motion.div>
         </div>
     );

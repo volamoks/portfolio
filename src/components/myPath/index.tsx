@@ -3,11 +3,15 @@ import Image from 'next/image';
 import { data } from '../../constants';
 import { Carousel } from 'flowbite-react';
 import { useComponentInView } from '@/hooks/useComponentInView';
+import { useFetchData } from '@/hooks/useLocalData';
+import { IProjectData } from '@/types';
 
 export const MyPath = () => {
     const isInView = useComponentInView('myPath');
+    const { data: myPathProject, isLoading } = useFetchData<IProjectData>('/api/localDataPath');
 
-    const gridViewElem = data.map((item, i) => (
+    isLoading && console.log(myPathProject);
+    const gridViewElem = myPathProject.map((item, i) => (
         <div
             key={item.id}
             className=" grid grid-cols-2 relative h-1/2 items-start "
@@ -19,7 +23,7 @@ export const MyPath = () => {
             <div className={`   ${i % 2 === 0 ? 'left-0' : 'right-0'}`}>
                 <Image
                     alt={item.name}
-                    src={item.img}
+                    src={'/' + item.images[0]}
                     width={820}
                     height={700}
                 ></Image>
@@ -38,7 +42,10 @@ export const MyPath = () => {
             </h1>
             <Carousel slideInterval={5000}>
                 {data.map((item, i) => (
-                    <div className="w-screen relative flex flex-col">
+                    <div
+                        key={item.id}
+                        className="w-screen relative flex flex-col"
+                    >
                         <div className="relative h-2/3 w-screen">
                             <img
                                 alt={item.name}
