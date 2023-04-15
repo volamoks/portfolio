@@ -7,6 +7,7 @@ import { ProjectTable } from '../projectsTable';
 
 import { MyPath } from '../myPath';
 import { IRefsInContext } from '../../types';
+import { nanoid } from '@reduxjs/toolkit';
 
 interface ICreateContext {
     ref: IRefsInContext;
@@ -46,7 +47,12 @@ export const MainPage = () => {
         <>
             <MyContext.Provider value={contextValue}>
                 {mainPageOrder.map((item, i) => (
-                    <Layout nth={i}>{item.component}</Layout>
+                    <Layout
+                        key={nanoid()}
+                        nth={i}
+                    >
+                        {item.component}
+                    </Layout>
                 ))}
             </MyContext.Provider>
         </>
