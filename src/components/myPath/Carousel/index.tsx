@@ -45,6 +45,8 @@ export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
     );
 
     return (
-        <div className="xl:hidden  h-screen w-screen relative overflow-hidden py-2">{carousel}</div>
+        <div className="xl:hidden  min-h-screen w-screen relative overflow-y-hidden py-2">
+            {carousel}
+        </div>
     );
 };

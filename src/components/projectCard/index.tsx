@@ -28,13 +28,12 @@ export const ProjectCard = ({ project }: { project: IProjectData }) => {
                         <FrameworksIcons project={project} />
                     </div>
                 </div>
-                <div className="relative w-full h-[calc(80vw)] xl:h-full">
-                    <Image
+                <div className="relative object-cover w-full h-[calc(80vw)] xl:h-full">
+                    <img
                         onClick={() => handleGoToPage(project.name + '')}
-                        className="xl:opacity-0 group-hover:xl:opacity-100 object-cover transition-all duration-500 cursor-pointer z-0 "
+                        className="xl:opacity-0 group-hover:xl:opacity-100  w-full h-full object-cover transition-all duration-500 cursor-pointer z-0 "
                         src={`/${project.images?.at(0)}  `}
                         alt={project.name}
-                        fill
                     />
                 </div>
             </motion.div>

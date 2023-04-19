@@ -119,7 +119,7 @@
             "isResponsive": true,
             "frameworks": ["HTML5", "Tailwind CSS", "TypeScript", "React", "Redux", "Next.js"],
             "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
-            "images": ["2048/1.png", "2048/2.png"],
+            "images": ["portfolio/1.png", "portfolio/2.png, portfolio/3.png"],
             "about": "",
             "relatedProjects": [7, 2]
         }
