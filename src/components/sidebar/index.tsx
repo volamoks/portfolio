@@ -25,15 +25,15 @@ export const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: ISideBar) => {
     const handleGo = useCallback(
         (link: string) => {
             setIsSidebarOpen(false);
-            if (!router.asPath.split('/')[1] && router.asPath === '/#projects') {
+            if (!router.asPath.split('/')[1] || router.asPath === '/#projects') {
                 handleGoToById(link);
             }
             handleGoToPage('/#' + link);
-            // const handleGo = setTimeout(() => {
-            //     handleGoToById('#' + link);
-            //     console.log(link);
-            // }, 0);
-            // return () => clearTimeout(handleGo);
+            const handleGo = setTimeout(() => {
+                handleGoToById('#' + link);
+                console.log(link);
+            }, 0);
+            return () => clearTimeout(handleGo);
         },
 
         [setIsSidebarOpen, handleGoToById, handleGoToPage, router],

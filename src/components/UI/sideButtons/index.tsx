@@ -10,7 +10,7 @@ export const SideButtons = () => {
     const router = useRouter();
 
     const handleGoTo = (url: string) => {
-        if (!router.asPath.split('/')[1] || router.asPath !== '/#project') {
+        if (!router.asPath.split('/')[1] || router.asPath === '/#project') {
             router.push('/#' + url);
         }
         handleGoToById(url);

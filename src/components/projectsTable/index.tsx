@@ -50,7 +50,7 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
             className="min-h-screen py-12"
         >
             <div
-                id={'filters'}
+                id="filters"
                 className={` transition-all duration-700 ${transitionClasses(
                     filtersInView || projectsInView,
                 )}`}

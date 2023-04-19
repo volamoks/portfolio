@@ -11,19 +11,15 @@ interface IFirstBanner {
     myRef: React.RefObject<HTMLDivElement>;
 }
 
-export const FirstBanner = ({ myRef }: IFirstBanner) => {
+export const FirstBanner = () => {
     const [isFirstRender, setIsFirstRender] = useState(true);
     const { isScroll } = UseScrollDirections();
 
     const { handleGoToById } = useNavigateById();
 
-    const handleClick = () => {
-        document.getElementById('greeting')?.scrollIntoView({ behavior: 'smooth' });
-    };
-
     useEffect(() => {
         setIsFirstRender(false);
-        document.getElementById('first')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('first')?.scrollIntoView({ behavior: 'auto' });
     }, [isFirstRender]);
 
     const helloElement = () => (
