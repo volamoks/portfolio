@@ -57,7 +57,7 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
                 <div className="absolute">{helloElement()}</div>
                 {!isScroll && <Glitch />}
                 <button
-                    className="absolute bottom-24"
+                    className="absolute bottom-24 z-30"
                     onClick={handleClick}
                 >
                     <MdOutlineKeyboardDoubleArrowDown size={30} />

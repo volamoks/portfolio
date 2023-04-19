@@ -17,9 +17,12 @@ export const MyPath = () => {
     // if (isLoading) return <MySpinner />;
 
     return (
-        <div id="myPath">
+        <div
+            id="myPath"
+            className="min-h-screen overflow-y-hidden"
+        >
             <div
-                className={`grid w-[100vw] min-h-screen transition-all overflow-y-hidden duration-[1500ms] ${transitionClasses} `}
+                className={`grid w-[100vw]  transition-all  duration-[1500ms] ${transitionClasses} `}
             >
                 <Grid projects={myPathProjects} />
             </div>

@@ -32,7 +32,7 @@ export const Contacts = ({ myRef }: IRefProps) => {
             <div
                 id="contacts"
                 ref={myRef}
-                className="flex flex-col h-64 items-center w-full justify-between p-6"
+                className="flex flex-col h-64 items-center w-full justify-between p-6 z-20"
             >
                 <button onClick={() => handleGoToById('projects')}>
                     <MdKeyboardDoubleArrowUp size={30} />
