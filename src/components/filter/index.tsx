@@ -26,6 +26,7 @@ export const Filters = ({ handleSetFilter, filter: propsFilter }: IFilterButtons
                 : dataArr?.filter(obj => obj.name === filterGroup)[0]?.arr,
         [filterGroup],
     );
+    
     return (
         <div
             id="stack"

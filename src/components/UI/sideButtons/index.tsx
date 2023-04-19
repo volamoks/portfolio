@@ -10,18 +10,20 @@ export const SideButtons = () => {
     const { handleGoToPage } = useGoToPage();
     const router = useRouter();
 
-    const handleGoTo = (url: string) => {
-        // if (!router.asPath.split('/')[1] || router.asPath === '/#project') {
-        //     router.push('/#' + url);
-        // }
-        // handleGoToById(url);
-        // handleGoToPage('/#' + url);
-        handleGoToById(url);
-    };
+    // const handleGoTo = (e, url: string) => {
+    //     e.preventDefault();
+    //     // if (!router.asPath.split('/')[1] || router.asPath === '/#project') {
+    //     //     router.push('/#' + url);
+    //     // }
+    //     // handleGoToById(url);
+    //     // handleGoToPage('/#' + url);
+    //     console.log(url);
+    //     // handleGoToById(url);
+    // };
 
     const redButton = (
         <button
-            onClick={() => handleGoTo('projects')}
+            onClick={() => handleGoToById('projects')}
             className=" bg-red-500 flex items-center justify-center left-0 top-1/2 w-20 h-20 hover:w-full  group transition-all duration-700 z-10"
         >
             <GoProject
@@ -36,7 +38,7 @@ export const SideButtons = () => {
 
     const whiteButton = (
         <button
-            onClick={() => handleGoTo('contacts')}
+            onClick={() => handleGoToById('contacts')}
             className="flex items-center justify-center left-0 top-1/2 w-20 h-20 hover:w-full bg-white group transition-all duration-700"
         >
             <AiOutlineMessage

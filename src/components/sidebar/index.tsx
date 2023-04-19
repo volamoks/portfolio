@@ -8,7 +8,7 @@ import { useGoToPage } from '@/hooks/useGoToPage';
 
 interface ISideBar {
     isSidebarOpen: boolean;
-    setIsSidebarOpen: (value: boolean) => void;
+    handleGo: (value: string) => void;
 }
 
 interface ILink {
@@ -16,29 +16,7 @@ interface ILink {
     name: string;
     sectionID: string;
 }
-export const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: ISideBar) => {
-    const router = useRouter();
-
-    const { handleGoToById } = useNavigateById();
-    const { handleGoToPage } = useGoToPage();
-
-    const handleGo = useCallback(
-        (link: string) => {
-            setIsSidebarOpen(false);
-            if (!router.asPath.split('/')[1] || router.asPath === '/#projects') {
-                handleGoToById(link);
-            }
-            handleGoToPage('/#' + link);
-            const handleGo = setTimeout(() => {
-                handleGoToById('#' + link);
-                console.log(link);
-            }, 0);
-            return () => clearTimeout(handleGo);
-        },
-
-        [setIsSidebarOpen, handleGoToById, handleGoToPage, router],
-    );
-
+export const SideBar = ({ isSidebarOpen, handleGo }: ISideBar) => {
     const sidebarClasses = !isSidebarOpen
         ? ' hidden'
         : ' grid absolute top-0  left-0 bg-gray-100/[97%] dark:bg-gray-500/[97%]  h-screen w-screen items-center z-10';

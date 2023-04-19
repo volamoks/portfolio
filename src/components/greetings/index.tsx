@@ -3,12 +3,11 @@ import { IRefProps } from '../../types';
 import { TypingText } from '../UI/typingTextEffect';
 import { useComponentInView } from '@/hooks/useComponentInView';
 
-export const Greetings = ({ myRef }: IRefProps) => {
+export const Greetings = () => {
     const isComponentInView = useComponentInView('greeting');
 
     return (
         <div
-            ref={myRef}
             id="greeting"
             className=" h-screen flex items-center justify-center gap-4 p-4"
         >

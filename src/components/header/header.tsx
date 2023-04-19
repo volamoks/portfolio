@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { SideButtons } from '../UI/sideButtons';
 import { SideBar } from '../sidebar';
@@ -6,9 +6,31 @@ import { SideBar } from '../sidebar';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 import { DarkModeBtn } from '../UI/darkModeButton';
+import { useGoToPage } from '@/hooks/useGoToPage';
+import { useNavigateById } from '@/hooks/useNavigateById';
 
 export const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+    const { handleGoToById } = useNavigateById();
+    const { handleGoToPage } = useGoToPage();
+
+    const handleGo = useCallback(
+        (link: string) => {
+            setIsSidebarOpen(false);
+            handleGoToById(link);
+            // if (!router.asPath.split('/')[1] || router.asPath === '/#projects') {
+            //     handleGoToById(link);
+            // }
+            // handleGoToPage('/#' + link);
+            // const handleGo = setTimeout(() => {
+            //     handleGoToById('#' + link);
+            //     console.log(link);
+            // }, 0);
+            // return () => clearTimeout(handleGo);
+        },
+
+        [setIsSidebarOpen, handleGoToById],
+    );
 
     useEffect(() => {
         document.body.style.overflow = isSidebarOpen ? 'hidden' : 'visible';
@@ -36,7 +58,7 @@ export const Header = () => {
                 {isSidebarOpen && (
                     <SideBar
                         isSidebarOpen={isSidebarOpen}
-                        setIsSidebarOpen={setIsSidebarOpen}
+                        handleGo={handleGo}
                     />
                 )}
                 <DarkModeBtn />
