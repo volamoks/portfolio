@@ -15,7 +15,8 @@ export const SideButtons = () => {
         //     router.push('/#' + url);
         // }
         // handleGoToById(url);
-        handleGoToPage('/#' + url);
+        // handleGoToPage('/#' + url);
+        handleGoToById(url);
     };
 
     const redButton = (
