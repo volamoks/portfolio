@@ -1,6 +1,4 @@
 import React from 'react';
-import { Header } from '../header/header';
-import { SideButtons } from '../sideButtons';
 
 import { useDarkMode } from '../darkModeProvider';
 
@@ -11,7 +9,6 @@ interface ILayoutProps {
 
 export const Layout: React.FC<ILayoutProps> = ({ nth, children }) => {
     const { isDarkMode } = useDarkMode();
-    console.log(isDarkMode);
 
     const modeClasses =
         nth % 2 !== 0
@@ -20,7 +17,6 @@ export const Layout: React.FC<ILayoutProps> = ({ nth, children }) => {
 
     return (
         <div className={`relative  ${isDarkMode ? 'dark' : ''}`}>
-            <Header />
             <div className={`transition-all duration-1000 relative ${modeClasses}`}>{children}</div>
         </div>
     );

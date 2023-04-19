@@ -7,6 +7,19 @@ export interface IIcon {
     name: string;
     component: JSX.Element;
     size?: number;
+    link: string;
+}
+
+export interface IFilterGroup {
+    id: number;
+    name: string;
+    arr: iFilterArray[];
+}
+
+export interface iFilterArray {
+    id: number;
+    name: string;
+    component: JSX.Element;
 }
 
 export interface IRefProps {
@@ -48,7 +61,7 @@ export interface IProjectData {
     id: number;
     name: string;
     github: string;
-    web_link?: string;
+    web_link: string;
     isResponsive: false;
     frameworks: string[];
     description: string;

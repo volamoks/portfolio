@@ -4,12 +4,12 @@
             "id": 1,
             "name": "Marvel App",
             "github": "https://github.com/volamoks/marvel_page",
-            "web_link": 1,
+            "web_link": "https://github.com/volamoks/marvel_page",
             "isResponsive": true,
-            "frameworks": ["HTML5", "SASS", "JavaScript", "React"],
+            "frameworks": ["HTML5", "SASS", "JavaScript", "React", "React Router"],
             "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["marvel/1.png", "marvel/2.png", "marvel/3.png"],
-            "relatedProjects": [1, 2],
+            "relatedProjects": [2],
             "about": ""
         },
         {
@@ -18,22 +18,22 @@
             "github": "https://github.com/volamoks/oneMusic",
             "web_link": "https://one-music-six.vercel.app/featured-playlists",
             "isResponsive": true,
-            "frameworks": ["HTML5", "Tailwind CSS", "TypeScript", "React", "Redux"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "frameworks": ["HTML5", "Tailwind CSS", "TypeScript", "React", "Redux", "React Router"],
+            "description": "Move over, Spotify - I've created my own clone of your popular music streaming service using TypeScript! With my Spotify Clone, users can access their own Spotify account, search for their favorite tracks and albums, and even listen to short previews of songs. And let's not forget about the slick and stylish interface, which I personally think is cooler than a polar bear's toenails. As a first-time TypeScript user, I was thrilled to learn how to incorporate strong typing and other advanced features into my code. Now, I'm ready to rock and roll (or hip-hop and chill) with my very own Spotify Clone. Who knows, maybe Spotify will be knocking on my door for a job offer soon!",
             "images": ["oneMusic/1.png", "oneMusic/2.png", "oneMusic/3.png", "oneMusic/4.png"],
-            "relatedProjects": [1, 2]
+            "relatedProjects": [7, 9]
         },
         {
             "id": 3,
-            "name": "Heroes admin panel ",
+            "name": "Heroes panel ",
             "github": "https://github.com/volamoks/admin_panel",
             "web_link": "https://heroes-panel-app.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "Bootstrap", "JavaScript", "React", "Redux"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "description": "I recently embarked on a new web development adventure and created a React-based application called the Hero Panel. This app lets users create their own superheroes with unique abilities, including water, air, earth, and fire. As a first-time React user, I was thrilled to learn how to use this powerful library to build a dynamic and responsive user interface. With the Hero Panel, users can easily add and remove heroes, customize their abilities, and save their creations for future battles against evil villains. Overall, this project was a super fun way to flex my coding muscles and unleash my inner superhero nerd. It's time to save the world, one line of code at a time!",
             "images": ["heroPanel/1.png"],
             "about": "",
-            "relatedProjects": [1, 2]
+            "relatedProjects": [1]
         },
         {
             "id": 4,
@@ -54,10 +54,10 @@
             "web_link": "https://pig-gamel.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "CSS3", "JavaScript"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "description": "I built the ultimate digital Pig Game experience using JavaScript, because sometimes you just need a break from adulting and want to roll some virtual dice. Through this project, I learned how to code the logic for the game, handle user input, and manipulate the DOM like a pro. Now, I can confidently say that I am a master of pig-based gaming and a web development wizard. Plus, who needs friends to play when you have a computer and a love for swine-themed games?",
             "images": ["pig/1.png", "pig/2.png"],
             "about": "",
-            "relatedProjects": [1, 2]
+            "relatedProjects": [6, 8]
         },
         {
             "id": 6,
@@ -66,10 +66,10 @@
             "web_link": "https://can-guess-number.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "CSS3", "JavaScript"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "description": "Test your luck and guessing skills with this fun, browser-based game. In this game, the computer selects a random number between 1 and 100, and the player tries to guess the number in as few attempts as possible. The game features a user-friendly interface, where the player inputs their guess, and the computer responds with a message indicating whether the guess is too high, too low, or correct. The player continues guessing until they correctly guess the number, at which point they can choose to play again or exit the game. This implementation uses vanilla JavaScript, HTML, and CSS to create a lightweight, yet engaging game experience. Enjoy the challenge of guessing the number and try to beat your high score!",
             "images": ["guessNumber/1.png", "guessNumber/.png"],
             "about": "",
-            "relatedProjects": [1, 2]
+            "relatedProjects": [5, 8]
         },
         {
             "id": 7,
@@ -78,7 +78,7 @@
             "web_link": "https://asos-next.vercel.app/",
             "isResponsive": false,
             "frameworks": [
-                "HTML",
+                "HTML5",
                 "Tailwind CSS",
                 "TypeScript",
                 "React",
@@ -87,7 +87,7 @@
                 "MongoDB",
                 "Prisma"
             ],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "description": "Move over, ASOS - I've created a near-full clone of your online shopping platform using some of the hottest web development tools around. With my ASOS Clone, users can browse a wide variety of products, add items to their cart, and check out like a boss. Although the search function is currently limited due to API constraints, I still got to flex my coding muscles with some of the latest and greatest tech, including Redux Toolkit, Next.js, Prisma, and Next Auth for secure user authentication. As a first-time user of these tools, I was excited to learn how to integrate them into my project and take my skills to the next level. While I don't necessarily expect a call from ASOS anytime soon, creating a near-full clone of their online shopping platform using the latest web development tools was still an exciting and rewarding experience. The intersection of fashion and tech has never been more exciting!",
             "images": [
                 "asos/1.png",
                 "asos/2.png",
@@ -105,11 +105,11 @@
             "github": "https://github.com/volamoks/2048",
             "web_link": "https://its-2048.vercel.app/",
             "isResponsive": false,
-            "frameworks": ["HTML", "CSS3", "JavaScript"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "frameworks": ["HTML5", "CSS3", "JavaScript"],
+            "description": "Enjoy the popular 2048 puzzle game in a pure JavaScript implementation without external libraries. Slide numbered tiles on a two-dimensional grid to combine them and create a tile with the number 2048. This minimalist game features smooth animations and a simple user interface.",
             "images": ["2048/1.png", "2048/2.png"],
             "about": "",
-            "relatedProjects": [1, 2]
+            "relatedProjects": [3, 5]
         },
         {
             "id": 9,
@@ -117,35 +117,35 @@
             "github": "https://github.com/volamoks/2048",
             "web_link": "https://its-2048.vercel.app/",
             "isResponsive": true,
-            "frameworks": ["HTML", "Tailwind CSS", "TypeScript", "React", "Redux", "Next.js"],
+            "frameworks": ["HTML5", "Tailwind CSS", "TypeScript", "React", "Redux", "Next.js"],
             "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
             "images": ["2048/1.png", "2048/2.png"],
             "about": "",
-            "relatedProjects": [1, 2]
+            "relatedProjects": [7, 2]
         }
     ],
     "path": [
         {
             "id": 5,
-            "name": "Pig game",
+            "name": "Pigmania",
             "github": "https://github.com/volamoks/PigGame",
             "web_link": "https://pig-gamel.vercel.app/",
             "isResponsive": false,
             "frameworks": ["HTML5", "CSS3", "JavaScript"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "description": "I built the ultimate digital Pig Game experience using JavaScript, because sometimes you just need a break from adulting and want to roll some virtual dice. Through this project, I learned how to code the logic for the game, handle user input, and manipulate the DOM like a pro. Now, I can confidently say that I am a master of pig-based gaming and a web development wizard. Plus, who needs friends to play when you have a computer and a love for swine-themed games?",
             "images": ["pig/1.png", "pig/2.png"],
-            "about": ""
+            "about": "A pig-themed game that takes players on a journey to a magical pig-filled world, while showcasing my first steps in JavaScript."
         },
         {
             "id": 3,
-            "name": "Heroes admin panel ",
+            "name": "Heroic Adventures",
             "github": "https://github.com/volamoks/admin_panel",
             "web_link": "https://heroes-panel-app.vercel.app/",
             "isResponsive": false,
-            "frameworks": ["HTML5", "Bootstrap", "JavaScript", "React", "Redux"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "frameworks": ["HTML5", "Bootstrap", "JavaScript", "React"],
+            "description": "I recently embarked on a new web development adventure and created a React-based application called the Hero Panel. This app lets users create their own superheroes with unique abilities, including water, air, earth, and fire. As a first-time React user, I was thrilled to learn how to use this powerful library to build a dynamic and responsive user interface. With the Hero Panel, users can easily add and remove heroes, customize their abilities, and save their creations for future battles against evil villains. Overall, this project was a super fun way to flex my coding muscles and unleash my inner superhero nerd. It's time to save the world, one line of code at a time!",
             "images": ["heroPanel/1.png"],
-            "about": ""
+            "about": "A React-based app allowing users to create their own unique superheroes and unleashing their inner hero."
         },
         {
             "id": 2,
@@ -154,18 +154,18 @@
             "web_link": "https://one-music-six.vercel.app/featured-playlists",
             "isResponsive": true,
             "frameworks": ["HTML5", "Tailwind CSS", "TypeScript", "React", "Redux"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "description": "Move over, Spotify - I've created my own clone of your popular music streaming service using TypeScript! With my Spotify Clone, users can access their own Spotify account, search for their favorite tracks and albums, and even listen to short previews of songs. And let's not forget about the slick and stylish interface, which I personally think is cooler than a polar bear's toenails. As a first-time TypeScript user, I was thrilled to learn how to incorporate strong typing and other advanced features into my code. Now, I'm ready to rock and roll (or hip-hop and chill) with my very own Spotify Clone. Who knows, maybe Spotify will be knocking on my door for a job offer soon!",
             "images": ["oneMusic/1.png", "oneMusic/2.png", "oneMusic/3.png", "oneMusic/4.png"],
-            "relatedProjects": [1, 2]
+            "about": "A TypeScript-based clone of the popular music streaming service, complete with a groovy interface and endless hours of musical enjoyment."
         },
         {
             "id": 7,
-            "name": "E-commerce",
+            "name": "My ASOS Twin",
             "github": "https://github.com/volamoks/GuessMyNumber",
             "web_link": "https://asos-next.vercel.app/",
             "isResponsive": false,
             "frameworks": [
-                "HTML",
+                "HTML5",
                 "Tailwind CSS",
                 "TypeScript",
                 "React",
@@ -174,7 +174,7 @@
                 "MongoDB",
                 "Prisma"
             ],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
+            "description": "Move over, ASOS - I've created a near-full clone of your online shopping platform using some of the hottest web development tools around. With my ASOS Clone, users can browse a wide variety of products, add items to their cart, and check out like a boss. Although the search function is currently limited due to API constraints, I still got to flex my coding muscles with some of the latest and greatest tech, including Redux Toolkit, Next.js, Prisma, and Next Auth for secure user authentication. As a first-time user of these tools, I was excited to learn how to integrate them into my project and take my skills to the next level. While I don't necessarily expect a call from ASOS anytime soon, creating a near-full clone of their online shopping platform using the latest web development tools was still an exciting and rewarding experience. The intersection of fashion and tech has never been more exciting!",
             "images": [
                 "asos/1.png",
                 "asos/2.png",
@@ -183,7 +183,7 @@
                 "asos/5.png",
                 "asos/6.png"
             ],
-            "about": ""
+            "about": "A near-full clone of the popular online shopping platform showcasing my skills with advanced tools like Redux Toolkit, Next.js, Prisma, and Next Auth, and providing a fun and fashionable shopping experience."
         }
     ]
 }

@@ -1,86 +1,43 @@
 import { useEffect, useState } from 'react';
 
-import { Underscore } from '../underscore';
+import { motion } from 'framer-motion';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { icons1 } from '../../constants';
-
-import { FilterButtons } from '../filterButtons';
-import { IProjectData, IRefProps } from '../../types';
 import { useComponentInView } from '@/hooks/useComponentInView';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-
 import { useFetchData } from '@/hooks/useLocalData';
+
+import { FilterButtons } from '../filter/filterButtons';
+import { ProjectCard } from '../projectCard';
+import { Underscore } from '../UI/underscore';
+
+import { IProjectData, IRefProps } from '../../types';
+import { useSetFilter } from '@/hooks/useSetFilter';
+import { Filters } from '../filter';
 
 export const ProjectTable = ({ myRef }: IRefProps) => {
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
-    const [array, setArray] = useState(data);
-    const [selectedFilter, setSelectedFilter] = useState('all');
-    const router = useRouter();
+
+    const [projectsArr, setProjectsArr] = useState<IProjectData[]>(data);
+    const { filter, handleSetFilter } = useSetFilter('all');
 
     const filtersInView = useComponentInView('filters');
     const projectsInView = useComponentInView('projects');
 
-    const iconsSize = 30;
-
     useEffect(() => {
-        selectedFilter === 'all'
-            ? setArray(data)
-            : setArray(
-                  data.filter(item =>
-                      item.frameworks.map(elem => elem.toLowerCase()).includes(selectedFilter),
+        filter === 'all'
+            ? setProjectsArr(data)
+            : setProjectsArr(
+                  data.filter(({ frameworks }) =>
+                      frameworks.map(elem => elem.toLowerCase()).includes(filter),
                   ),
               );
-    }, [selectedFilter, data]);
-
-    const handleClick = (name: string) => {
-        setSelectedFilter(name.toLowerCase());
-    };
-
-    const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedFilter(e.target.value.toLowerCase());
-    };
-
-    const handleGoToPage = (id: string) => {
-        router.push(`/${id}`);
-    };
+    }, [filter, data]);
 
     const project = (arr: IProjectData[]) =>
-        arr.map((item, i) => (
-            <AnimatePresence key={item.id}>
-                <motion.div
-                    layout
-                    animate={{ opacity: 1 }}
-                    initial={{ opacity: 0 }}
-                    exit={{ opacity: 0 }}
-                    className=" relative  flex flex-col items-start justify-center group shadow-2xl min-h-[31vw] w-full xl:bg-gray-500 dark:xl:bg-gray-700  hover:shadow-gray-500 hover:shadow-2xl dark:shadow-gray-800 xl:items-start"
-                >
-                    <div
-                        className=" relative xl:absolute  bg-red-500 text-white  xl:bg-transparent xl:translate-y-0  xl:group-hover:-translate-y-[278px]  group-hover:bg-red-500 group-hover:text-white  
-                    transition-all duration-500 font-bold uppercase xl:text-4xl xl:group-hover:text-2xl  pl-2 cursor-pointer"
-                    >
-                        <span>{item.name}</span>
-                        <span className="text-red-500">_</span>
-                        <div className="flex m-2 gap-2 ">
-                            {icons1(iconsSize)
-                                .filter(icon => item.frameworks.includes(icon.name))
-                                .map((icon, i) => (
-                                    <div key={icon.id}>{icon.component}</div>
-                                ))}
-                        </div>
-                    </div>
-                    <div className="relative w-full h-[calc(80vw)] xl:h-full">
-                        <Image
-                            onClick={() => handleGoToPage(item.id + '')}
-                            className="xl:opacity-0 group-hover:xl:opacity-100 object-cover transition-all duration-500 cursor-pointer z-0 "
-                            src={`/${item.images?.at(0)}  `}
-                            alt={item.name}
-                            fill
-                        />
-                    </div>
-                </motion.div>
-            </AnimatePresence>
+        arr.map((project, i) => (
+            <ProjectCard
+                key={project.id}
+                project={project}
+            />
         ));
 
     const transitionClasses = (componentInView: boolean) =>
@@ -89,7 +46,7 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
     return (
         <div
             id="projects"
-            ref={myRef}
+            // ref={myRef}
             className="min-h-screen py-12"
         >
             <div
@@ -98,7 +55,7 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
                     filtersInView || projectsInView,
                 )}`}
             >
-                <h1 className=" py-12 text-5xl font-bold text-center uppercase">
+                <h1 className=" py-12 xl:text-5xl  text-4xl font-bold text-center uppercase">
                     My works. To show what i can do
                     <Underscore />
                 </h1>
@@ -107,11 +64,10 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
                     Ignite the world with your strikingly showcased art using Haar’s beautifully
                     crafted, easily customizable homepages.
                 </h2>
-                <FilterButtons
-                    handleClick={handleClick}
-                    selectedFilter={selectedFilter}
-                    handleSelect={handleSelect}
-                    setSelectedFilter={setSelectedFilter}
+
+                <Filters
+                    handleSetFilter={handleSetFilter}
+                    filter={filter}
                 />
             </div>
 
@@ -120,7 +76,7 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
                     projectsInView,
                 )}`}
             >
-                {project(array)}
+                {project(projectsArr)}
             </motion.div>
         </div>
     );

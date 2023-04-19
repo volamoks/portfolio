@@ -1,11 +1,11 @@
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 
 export const Glitch = () => {
     const glitchBlocks = Array.from({ length: 5 }, (_, i) => ({
         id: i + 'glitch',
         height: Math.floor(Math.random() * 50) + 1 + 'px',
         delay: i * 0.1 + 's',
-        glitchColor: 'rgba(209 213 219 / 0.05)',
+        glitchColor: 'rgba(209 213 219 / 0.15)',
     }));
 
     return (

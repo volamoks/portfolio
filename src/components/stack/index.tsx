@@ -1,6 +1,6 @@
 import { icons1, icons2, icons3 } from '../../constants';
 
-import { Underscore } from '../underscore';
+import { Underscore } from '../UI/underscore';
 import { IRefProps } from '../../types';
 
 interface Icon {

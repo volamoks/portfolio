@@ -1,8 +1,10 @@
 import { CSSProperties, useCallback } from 'react';
+import { useRouter } from 'next/router';
+
+import { useNavigateById } from '@/hooks/useNavigateById';
 
 import { navList } from '../../constants';
-import { useNavigateById } from '@/hooks/useNavigateById';
-import { useRouter } from 'next/router';
+import { useGoToPage } from '@/hooks/useGoToPage';
 
 interface ISideBar {
     isSidebarOpen: boolean;
@@ -18,15 +20,20 @@ export const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: ISideBar) => {
     const router = useRouter();
 
     const { handleGoToById } = useNavigateById();
+    const { handleGoToPage } = useGoToPage();
 
     const handleGo = useCallback(
         (link: string) => {
-            if (router.pathname !== '/') router.push('/');
             setIsSidebarOpen(false);
-            const handleGo = setTimeout(() => {
+            if (!router.asPath.split('/')[1]) {
                 handleGoToById(link);
-            }, 0);
-            return () => clearTimeout(handleGo);
+            }
+            handleGoToPage('/#' + link);
+            // const handleGo = setTimeout(() => {
+            //     handleGoToById('#' + link);
+            //     console.log(link);
+            // }, 0);
+            // return () => clearTimeout(handleGo);
         },
 
         [setIsSidebarOpen, handleGoToById, router],
@@ -50,13 +57,13 @@ export const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: ISideBar) => {
             </li>
         ));
 
-    const sideBar = (
-        <ul
-            className={`sticky top-0 grid gap-4 w-64 text-4xl uppercase items-center font-bold mx-auto`}
-        >
-            {sideBarList(navList)}
-        </ul>
+    return (
+        <div className={`transition-all z-10 duration-300 ${sidebarClasses}`}>
+            <ul
+                className={`sticky top-0 grid gap-4 w-64 text-4xl uppercase items-center font-bold mx-auto`}
+            >
+                {sideBarList(navList)}
+            </ul>
+        </div>
     );
-
-    return <div className={`transition-all z-10 duration-300 ${sidebarClasses}`}>{sideBar}</div>;
 };

@@ -1,33 +1,38 @@
-import { Layout } from '@/components/layout';
+import { FC, useRef } from 'react';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
-import { MdArrowBackIosNew } from 'react-icons/md';
-
 import Image from 'next/image';
+import Link from 'next/link';
 import { nanoid } from '@reduxjs/toolkit';
 import { Carousel, Spinner } from 'flowbite-react';
-import { useFetchData } from '@/hooks/useLocalData';
-import { IProjectData } from '@/types';
+
+import { Layout } from '@/components/layout';
+import { Header } from '@/components/header/header';
 import { RelatedProjects } from '@/components/relatedProjects';
+import { FrameworksIcons } from '@/components/UI/frameworksIcons';
+
+import { useFetchData } from '@/hooks/useLocalData';
 import { useNavigateById } from '@/hooks/useNavigateById';
+import { SiGithub } from 'react-icons/si';
+import { MdArrowBackIosNew } from 'react-icons/md';
+import { TbWorldWww } from 'react-icons/tb';
+
+import { IProjectData } from '@/types';
 
 export const ProjectPage: FC = () => {
     const router = useRouter();
-    const projectId = +router.asPath.split('/')[1];
+    const projectName = router.asPath.split('/')[1].replace(/%20/g, ' ');
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
-    const { handleGoToById } = useNavigateById();
 
-    isLoading === false && console.log(data);
+    const myRef = useRef<HTMLInputElement>(null);
 
-    const currentProject = data.filter(item => item.id === projectId)[0];
+    const currentProject = data.filter(item => item.name === projectName)[0];
 
     const handleGoto = () => {
         router.push('/#projects');
     };
-
-    const handleGoToRelated = (id: string) => {
-        router.push('/' + id);
-        handleGoToById('myProject');
+    const handleGoToRelated = (name: string) => {
+        router.push('/' + name);
+        myRef?.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     if (isLoading) return <Spinner />;
@@ -50,54 +55,71 @@ export const ProjectPage: FC = () => {
     const description = (
         <>
             <div className="">
-                <h1 className="text-2xl font bold  my-4">Objective</h1>
-                <div>Tools & Technologies HTML, CSS, JavaScript, Vue.js, TailwindCSS, AdobeXD</div>
-                <h1 className="text-2xl font bold  my-4">Tools & Technologies</h1>
-                <div>Tools & Technologies HTML, CSS, JavaScript, Vue.js, TailwindCSS, AdobeXD</div>
+                <h1 className="text-2xl font-bold  my-4">Tools & Technologies</h1>
+
+                <div className="flex gap-2 my-4 ">
+                    <FrameworksIcons
+                        project={currentProject}
+                        iconsSize={40}
+                    />
+                </div>
+                <h1 className="text-2xl font-bold mt-8 my-4">Links to Project</h1>
+                <div className="flex gap-2 ">
+                    <Link
+                        className="hover:scale-125 transition-all"
+                        href={currentProject.web_link}
+                    >
+                        <TbWorldWww size={40} />
+                    </Link>
+                    <Link
+                        className="hover:scale-125 transition-all"
+                        href={currentProject.github}
+                    >
+                        <SiGithub size={40} />
+                    </Link>
+                </div>
             </div>
             <div className=" col-span-2">
-                <h1 className="text-2xl font bold  my-4">Challenge</h1>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum
-                    asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit
-                    explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium
-                    adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut
-                    quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde,
-                </p>
+                <h1 className="text-2xl font-bold  my-4">About Project</h1>
+                <p>{currentProject.description}</p>
             </div>
         </>
     );
 
     return (
-        <Layout nth={1}>
-            <div
-                id="myProject"
-                className="py-24 h-screen mx-auto overflow-y-auto px-12 overflow-hidden  "
-            >
-                <button onClick={handleGoto}>
-                    <MdArrowBackIosNew />
-                </button>
-
-                <h1 className="text-4xl font-bold my-8">{currentProject?.name}</h1>
-
-                {/* <div className="flex relative justify-between w-full gap-2 h-[50%]">
-                    {desktopImages}
-                </div> */}
-                <div
-                    id="myProject"
-                    className="h-2/3"
-                >
-                    <Carousel>{desktopImages}</Carousel>
+        <Layout nth={0}>
+            <>
+                <div className="fixed">
+                    <Header />
                 </div>
+                <div className="py-24 h-screen mx-auto overflow-y-auto px-12 overflow-hidden  ">
+                    <button
+                        id="project_header"
+                        onClick={handleGoto}
+                    >
+                        <MdArrowBackIosNew size={30} />
+                    </button>
 
-                <div className="grid xl:grid-cols-3">{description}</div>
+                    <h1
+                        ref={myRef}
+                        id="project_header"
+                        className="xl:text-5xl text-2xl font-bold my-8 uppercase "
+                    >
+                        {currentProject?.name}
+                    </h1>
 
-                <RelatedProjects
-                    id={projectId}
-                    handleGoToById={handleGoToRelated}
-                />
-            </div>
+                    <div className="h-full">
+                        <Carousel>{desktopImages}</Carousel>
+                    </div>
+
+                    <div className="grid xl:grid-cols-3 text-xl">{description}</div>
+
+                    <RelatedProjects
+                        id={currentProject?.id}
+                        handleGoToRelated={handleGoToRelated}
+                    />
+                </div>
+            </>
         </Layout>
     );
 };

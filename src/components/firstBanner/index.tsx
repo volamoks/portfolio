@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Glitch } from '../glitch';
+import { Glitch } from '../UI/glitch';
 
 import { UseScrollDirections } from '@/hooks/useScrollDirection';
 import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
+import { Header } from '../header/header';
+import { Underscore } from '../UI/underscore';
 
 interface IFirstBanner {
     myRef: React.RefObject<HTMLDivElement>;
@@ -38,23 +40,29 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
                     isFirstRender || isScroll ? '-translate-x-[1000px]' : 'translate-x-0'
                 }  duration-1000 `}
             >
-                <span className="absolute bottom-0 font-bold text-8xl">Hello.</span>
+                <span className="absolute bottom-0 font-bold text-8xl">
+                    Hello
+                    <Underscore size={8} />
+                </span>
             </div>
         </div>
     );
 
     return (
-        <div
-            className={` flex-col relative flex h-screen justify-center  items-center  group overscroll-y-none  transition-all duration-1000 `}
-        >
-            <div className="absolute">{helloElement()}</div>
-            {!isScroll && <Glitch />}
-            <button
-                className="absolute bottom-24"
-                onClick={handleClick}
+        <>
+            <Header />
+            <div
+                className={` flex-col relative flex h-screen justify-center  items-center  group overscroll-y-none  transition-all duration-1000 `}
             >
-                <MdOutlineKeyboardDoubleArrowDown size={30} />
-            </button>
-        </div>
+                <div className="absolute">{helloElement()}</div>
+                {!isScroll && <Glitch />}
+                <button
+                    className="absolute bottom-24"
+                    onClick={handleClick}
+                >
+                    <MdOutlineKeyboardDoubleArrowDown size={30} />
+                </button>
+            </div>
+        </>
     );
 };

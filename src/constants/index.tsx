@@ -17,6 +17,7 @@ import {
     SiTelegram,
     SiTwitter,
     SiWhatsapp,
+    SiPrisma,
 } from 'react-icons/si';
 import { IData, IIcon } from '../types';
 
@@ -77,6 +78,7 @@ export const icons1 = (size = 30) => [
     { id: 11, name: 'React Router', component: <SiReactrouter size={size} /> },
     { id: 12, name: 'MongoDB', component: <SiMongodb size={size} /> },
     { id: 13, name: 'GraphQL', component: <SiGraphql size={size} /> },
+    { id: 14, name: 'Prisma', component: <SiPrisma size={size} /> },
 ];
 
 export const icons2 = (size = 30) => [
@@ -90,6 +92,12 @@ export const icons2 = (size = 30) => [
 export const icons3 = (size = 30) => [
     { id: 1, name: 'MongoDB', component: <SiMongodb size={size} /> },
     { id: 2, name: 'GraphQL', component: <SiGraphql size={size} /> },
+];
+
+export const filterGroup = (iconsSize: number) => [
+    { id: 111, name: 'My stack', arr: icons1(iconsSize) },
+    { id: 222, name: 'Love to use', arr: icons2(iconsSize) },
+    { id: 333, name: 'On the way to know better', arr: icons3(iconsSize) },
 ];
 
 export const data: IData[] = [
@@ -127,9 +135,15 @@ export const contactsIcons = [
     {
         id: 1,
         name: 'Github',
+        link: 'https://github.com/volamoks',
         component: <SiGithub size={30} />,
     },
-    { id: 2, name: 'Twitter', component: <SiTwitter size={30} /> },
-    { id: 3, name: 'Telegram', component: <SiTelegram size={30} /> },
-    { id: 4, name: 'Whatsapp', component: <SiWhatsapp size={30} /> },
+    {
+        id: 2,
+        name: 'Twitter',
+        link: 'https://twitter.com/abrorium',
+        component: <SiTwitter size={30} />,
+    },
+    { id: 3, name: 'Telegram', link: 'https://t.me/volamoks', component: <SiTelegram size={30} /> },
+    // { id: 4, name: 'Whatsapp', link: '', component: <SiWhatsapp size={30} /> },
 ];

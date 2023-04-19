@@ -27,7 +27,6 @@ export const MainPage = () => {
         { id: 2, name: 'greeting', component: <Greetings myRef={greetingRef} /> },
         { id: 3, name: 'myPath', component: <MyPath /> },
         { id: 5, name: 'projects', component: <ProjectTable myRef={myProjectsRef} /> },
-        // { id: 4, name: 'stack', component: <Stack myRef={stackRef} /> },
         { id: 6, name: 'contacts', component: <Contacts myRef={contactsRef} /> },
     ];
 

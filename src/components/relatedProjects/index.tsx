@@ -3,34 +3,36 @@ import { IProjectData } from '@/types';
 import React from 'react';
 import Image from 'next/image';
 import { useGoToPage } from '@/hooks/useGoToPage';
-import { useNavigateById } from '@/hooks/useNavigateById';
-import { useGoToPageByRef } from '@/hooks/useGoToPageByRef';
 import { Spinner } from 'flowbite-react';
+import { useNavigateById } from '@/hooks/useNavigateById';
 
 interface IRelatedProjects {
     id: number;
-    handleGoToById: (id: string) => void;
+    handleGoToRelated: (id: string) => void;
 }
 
-export const RelatedProjects = ({ id, handleGoToById }: IRelatedProjects) => {
+export const RelatedProjects = ({ id, handleGoToRelated }: IRelatedProjects) => {
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
 
     const { handleGoToPage } = useGoToPage();
+    const { handleGoToById } = useNavigateById();
 
-    const goto = (id: number) => {
-        handleGoToPage('/' + id);
-        handleGoToById('myProject');
-    };
+    // const handleGoToRelated = (id: string) => {
+    //     handleGoToPage('/' + id);
+    //     document
+    //         .getElementById('project_header')
+    //         .scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    // };
 
     if (isLoading) return <Spinner />;
 
-    const related = data
+    const relatedProjects = data
         .filter(item => data[id]?.relatedProjects.includes(item.id))
         .map((item, i) => (
             <div
                 key={item.id + 'related'}
-                onClick={() => handleGoToPage(item.id + '')}
-                className=" relative xl:h-2/3 h-full w-[92%] hover:scale-110 transition-all duration-500 ease-in-out mx-auto"
+                onClick={() => handleGoToRelated(item.name + '')}
+                className=" relative xl:h-2/3 h-full w-[92%] xl:hover:scale-110 transition-all duration-500 ease-in-out mx-auto"
             >
                 <h1>{item.name}</h1>
                 <div className="w-1/2 xl:h-1/2 h-2/3 hover:translate">
@@ -48,7 +50,7 @@ export const RelatedProjects = ({ id, handleGoToById }: IRelatedProjects) => {
         <div className=" xl:h-[calc(100vh*0.6)] h-full border-y my-12 py-4 ">
             <h1 className="text-2xl font bold ">Related Projects</h1>
             <div className="grid  xl:grid-cols-4 h-full xl:gap-16 gap-4 items-center pb-4">
-                {related}
+                {relatedProjects}
             </div>
         </div>
     );

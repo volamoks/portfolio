@@ -1,6 +1,6 @@
 import React from 'react';
 import { IRefProps } from '../../types';
-import { TypingText } from '../typingText';
+import { TypingText } from '../UI/typingTextEffect';
 import { useComponentInView } from '@/hooks/useComponentInView';
 
 export const Greetings = ({ myRef }: IRefProps) => {

@@ -3,22 +3,26 @@ import { useGoToPageByRef } from '@/hooks/useGoToPageByRef';
 import { IconCard } from '../stack';
 import { IIcon, IRefProps } from '@/types';
 import { contactsIcons } from '@/constants';
+import Link from 'next/link';
 
 import { MdKeyboardDoubleArrowUp } from 'react-icons/md';
 import { useNavigateById } from '@/hooks/useNavigateById';
 
 export const Contacts = ({ myRef }: IRefProps) => {
     const { handleGoToById } = useNavigateById();
-    const { ref, handleClick } = useGoToPageByRef();
 
     const card = (arr: IIcon[]) => {
         return arr.map(icon => {
             return (
-                <IconCard
+                <Link
                     key={icon.id}
-                    name={icon.name}
-                    component={icon.component}
-                />
+                    href={icon.link}
+                >
+                    <IconCard
+                        name={icon.name}
+                        component={icon.component}
+                    />
+                </Link>
             );
         });
     };
