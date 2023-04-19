@@ -35,7 +35,7 @@ export const Contacts = ({ myRef }: IRefProps) => {
                 className="flex flex-col h-64 items-center w-full justify-between p-6 z-20"
             >
                 <button onClick={() => handleGoToById('projects')}>
-                    <MdKeyboardDoubleArrowUp size={30} />
+                    <MdKeyboardDoubleArrowUp size={40} />
                 </button>
                 <div className="flex gap-6">{card(contactsIcons)}</div>
             </div>

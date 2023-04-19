@@ -5,6 +5,7 @@ import { UseScrollDirections } from '@/hooks/useScrollDirection';
 import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
 import { Header } from '../header/header';
 import { Underscore } from '../UI/underscore';
+import { useNavigateById } from '@/hooks/useNavigateById';
 
 interface IFirstBanner {
     myRef: React.RefObject<HTMLDivElement>;
@@ -14,17 +15,16 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
     const [isFirstRender, setIsFirstRender] = useState(true);
     const { isScroll } = UseScrollDirections();
 
+    const { handleGoToById } = useNavigateById();
+
     const handleClick = () => {
         document.getElementById('greeting')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     useEffect(() => {
         setIsFirstRender(false);
-        const timer = setInterval(() => {
-            handleClick();
-        }, 5000);
-        return clearInterval(timer);
-    }, []);
+        document.getElementById('first')?.scrollIntoView({ behavior: 'smooth' });
+    }, [isFirstRender]);
 
     const helloElement = () => (
         <div className="relative flex flex-col h-64 w-96 m-0 p-0  ">
@@ -52,15 +52,16 @@ export const FirstBanner = ({ myRef }: IFirstBanner) => {
         <>
             <Header />
             <div
+                id="first"
                 className={` flex-col relative flex h-screen justify-center  items-center  group overscroll-y-none  transition-all duration-1000 `}
             >
                 <div className="absolute">{helloElement()}</div>
                 {!isScroll && <Glitch />}
                 <button
                     className="absolute bottom-24 z-30"
-                    onClick={handleClick}
+                    onClick={() => handleGoToById('greeting')}
                 >
-                    <MdOutlineKeyboardDoubleArrowDown size={30} />
+                    <MdOutlineKeyboardDoubleArrowDown size={40} />
                 </button>
             </div>
         </>
