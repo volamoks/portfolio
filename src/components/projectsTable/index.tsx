@@ -13,7 +13,7 @@ import { IProjectData, IRefProps } from '../../types';
 import { useSetFilter } from '@/hooks/useSetFilter';
 import { Filters } from '../filter';
 
-export const ProjectTable = ({ myRef }: IRefProps) => {
+export const ProjectTable = () => {
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
 
     const [projectsArr, setProjectsArr] = useState<IProjectData[]>(data);
@@ -46,7 +46,6 @@ export const ProjectTable = ({ myRef }: IRefProps) => {
     return (
         <div
             id="projects"
-            // ref={myRef}
             className="min-h-screen py-12"
         >
             <div

@@ -1,4 +1,3 @@
-import { IRef, IRefProps, IRefsInContext, ISideBar } from '@/types';
 import {
     SiNextdotjs,
     SiCss3,

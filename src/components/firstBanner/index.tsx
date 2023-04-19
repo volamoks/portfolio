@@ -7,9 +7,7 @@ import { Header } from '../header/header';
 import { Underscore } from '../UI/underscore';
 import { useNavigateById } from '@/hooks/useNavigateById';
 
-interface IFirstBanner {
-    myRef: React.RefObject<HTMLDivElement>;
-}
+
 
 export const FirstBanner = () => {
     const [isFirstRender, setIsFirstRender] = useState(true);

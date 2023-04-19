@@ -1,7 +1,6 @@
 import { icons1, icons2, icons3 } from '../../constants';
 
 import { Underscore } from '../UI/underscore';
-import { IRefProps } from '../../types';
 
 interface Icon {
     name: string;
@@ -35,12 +34,9 @@ const fullCard = (text: string, arr: Icon[]) => (
     </>
 );
 
-export const Stack = ({ myRef }: IRefProps) => {
+export const Stack = () => {
     return (
-        <div
-            ref={myRef}
-            className="min-h-screen max-w-screen flex flex-col justify-around py-6"
-        >
+        <div className="min-h-screen max-w-screen flex flex-col justify-around py-6">
             {fullCard('My stack', icons1(50))}
             {fullCard('Love to use', icons2(50))}
             {fullCard('On the way to know better', icons3(50))}

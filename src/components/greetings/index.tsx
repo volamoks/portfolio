@@ -1,5 +1,5 @@
 import React from 'react';
-import { IRefProps } from '../../types';
+
 import { TypingText } from '../UI/typingTextEffect';
 import { useComponentInView } from '@/hooks/useComponentInView';
 
