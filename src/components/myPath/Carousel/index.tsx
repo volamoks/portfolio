@@ -28,7 +28,7 @@ export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
                         ></Image>
                         <div className="px-4 py-12 grid gap-8">
                             <h1 className="uppercase text-3xl text-start font-bold ">
-                                {item.name}
+                                {i + 1}.{item.name}
                             </h1>
                             <div className="flex gap-4">
                                 <FrameworksIcons

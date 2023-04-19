@@ -19,7 +19,7 @@ export const MyPath = () => {
     return (
         <div id="myPath">
             <div
-                className={`grid w-[100vw] h-full transition-all  duration-[1500ms] ${transitionClasses} `}
+                className={`grid w-[100vw] min-h-screen transition-all overflow-y-hidden duration-[1500ms] ${transitionClasses} `}
             >
                 <Grid projects={myPathProjects} />
             </div>

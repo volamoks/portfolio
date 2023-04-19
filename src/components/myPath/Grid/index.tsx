@@ -18,7 +18,9 @@ export const Grid = ({ projects }: { projects: IProjectData[] }) => {
                     className=" grid grid-cols-2 relative h-1/2 items-start "
                 >
                     <div className={` pl-12 grid gap-4 ${i % 2 === 0 ? 'hidden' : ''}`}>
-                        <h1 className="text-3xl uppercase font-bold py-12 ">{item.name}</h1>
+                        <h1 className="text-3xl uppercase font-bold py-12 ">
+                            {i + 1}.{item.name}
+                        </h1>
                         <div className="flex gap-2">
                             <FrameworksIcons project={item} />
                         </div>
@@ -38,7 +40,9 @@ export const Grid = ({ projects }: { projects: IProjectData[] }) => {
                         ></Image>
                     </div>
                     <div className={` w-[80%] pl-12 grid gap-4  ${i % 2 === 0 ? '' : 'hidden'}`}>
-                        <h1 className="text-3xl uppercase font-bold py-12 ">{item.name}</h1>
+                        <h1 className="text-3xl uppercase font-bold py-12 ">
+                            {i + 1}.{item.name}
+                        </h1>
                         <div className="flex gap-2">
                             <FrameworksIcons project={item} />
                         </div>
