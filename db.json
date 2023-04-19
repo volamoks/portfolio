@@ -35,18 +35,7 @@
             "about": "",
             "relatedProjects": [1]
         },
-        {
-            "id": 4,
-            "name": "forkify",
-            "github": "https://github.com/volamoks/Heroes_Panel",
-            "web_link": "https://one-music-six.vercel.app/featured-playlists",
-            "isResponsive": false,
-            "frameworks": ["HTML5", "SASS", "JavaScript"],
-            "description": "I want to get the data from the path array and display it on the page. I tried to do it with the map method, but I can’t figure out how to do it. I would be grateful for any help.",
-            "images": ["forkify/.png"],
-            "about": "",
-            "relatedProjects": [1, 2]
-        },
+
         {
             "id": 5,
             "name": "Pig game",

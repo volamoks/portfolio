@@ -7,13 +7,13 @@ import { GoProject } from 'react-icons/go';
 
 export const SideButtons = () => {
     const { handleGoToById } = useNavigateById();
+    const { handleGoToPage } = useGoToPage();
     const router = useRouter();
 
     const handleGoTo = (url: string) => {
-        // if (router.asPath !== '/#projects') {
-        //     console.log(router.asPath);
-        //     router.push('/#' + url);
-        // }
+        if (!router.asPath.split('/')[1] || router.asPath !== '/#projects') {
+            handleGoToPage('/#' + url);
+        }
         handleGoToById(url);
     };
 

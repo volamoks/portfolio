@@ -28,7 +28,7 @@ export const ProjectCard = ({ project }: { project: IProjectData }) => {
                         <FrameworksIcons project={project} />
                     </div>
                 </div>
-                <div className="relative object-cover w-full h-[calc(80vw)] xl:h-full">
+                <div className="relative object-cover w-full h-[calc(75vw)] xl:h-full">
                     <img
                         onClick={() => handleGoToPage(project.name + '')}
                         className="xl:opacity-0 group-hover:xl:opacity-100  w-full h-full object-cover transition-all duration-500 cursor-pointer z-0 "
