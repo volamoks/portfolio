@@ -19,7 +19,7 @@ export const FirstBanner = () => {
 
     useEffect(() => {
         setIsFirstRender(false);
-        document.getElementById('first')?.scrollIntoView({ behavior: 'auto' });
+        // document.getElementById('first')?.scrollIntoView({ behavior: 'auto' });
     }, [isFirstRender]);
 
     const helloElement = () => (
