@@ -89,9 +89,8 @@ export const ProjectPage: FC = () => {
     return (
         <Layout nth={0}>
             <>
-                <div className="fixed">
-                    <Header />
-                </div>
+                <Header />
+
                 <div className="py-24 h-screen mx-auto overflow-y-auto px-12 overflow-hidden  ">
                     <button
                         id="project_header"

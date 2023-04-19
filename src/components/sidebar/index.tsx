@@ -25,7 +25,7 @@ export const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: ISideBar) => {
     const handleGo = useCallback(
         (link: string) => {
             setIsSidebarOpen(false);
-            if (!router.asPath.split('/')[1]) {
+            if (!router.asPath.split('/')[1] && router.asPath === '/#projects') {
                 handleGoToById(link);
             }
             handleGoToPage('/#' + link);
@@ -36,7 +36,7 @@ export const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: ISideBar) => {
             // return () => clearTimeout(handleGo);
         },
 
-        [setIsSidebarOpen, handleGoToById, router],
+        [setIsSidebarOpen, handleGoToById, handleGoToPage, router],
     );
 
     const sidebarClasses = !isSidebarOpen
