@@ -7,8 +7,6 @@ import { Header } from '../header/header';
 import { Underscore } from '../UI/underscore';
 import { useNavigateById } from '@/hooks/useNavigateById';
 
-
-
 export const FirstBanner = () => {
     const [isFirstRender, setIsFirstRender] = useState(true);
     const { isScroll } = UseScrollDirections();
@@ -17,7 +15,7 @@ export const FirstBanner = () => {
 
     useEffect(() => {
         setIsFirstRender(false);
-        document.getElementById('first')?.scrollIntoView({ behavior: 'auto' });
+        // document.getElementById('first')?.scrollIntoView({ behavior: 'auto' });
     }, [isFirstRender]);
 
     const helloElement = () => (

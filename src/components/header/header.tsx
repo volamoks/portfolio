@@ -58,7 +58,7 @@ export const Header = () => {
                 {isSidebarOpen && (
                     <SideBar
                         isSidebarOpen={isSidebarOpen}
-                        handleGo={handleGo}
+                        setIsSidebarOpen={setIsSidebarOpen}
                     />
                 )}
                 <DarkModeBtn />

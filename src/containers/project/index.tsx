@@ -17,12 +17,13 @@ import { MdArrowBackIosNew } from 'react-icons/md';
 import { TbWorldWww } from 'react-icons/tb';
 
 import { IProjectData } from '@/types';
+import { useGoToPage } from '@/hooks/useGoToPage';
 
 export const ProjectPage: FC = () => {
     const router = useRouter();
     const projectName = router.asPath.split('/')[1].replace(/%20/g, ' ');
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
-
+    const { handleGoToPage } = useGoToPage();
     const myRef = useRef<HTMLInputElement>(null);
 
     const currentProject = data.filter(item => item.name === projectName)[0];
@@ -94,7 +95,7 @@ export const ProjectPage: FC = () => {
                 <div className="py-24 h-screen mx-auto overflow-y-auto px-12 overflow-hidden  ">
                     <button
                         id="project_header"
-                        onClick={handleGoto}
+                        onClick={() => router.push('/#projects')}
                     >
                         <MdArrowBackIosNew size={30} />
                     </button>

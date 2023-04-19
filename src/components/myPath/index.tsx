@@ -2,7 +2,6 @@ import { useComponentInView } from '@/hooks/useComponentInView';
 import { useFetchData } from '@/hooks/useLocalData';
 import { MyCarousel } from './Carousel';
 import { Grid } from './Grid';
-import { MySpinner } from '../UI/Spinner';
 
 import { IProjectData } from '@/types';
 
@@ -13,8 +12,6 @@ export const MyPath = () => {
     const transitionClasses = isInView
         ? 'translate-x-0 opacity-100'
         : '-translate-x-[100%] opacity-0';
-
-    // if (isLoading) return <MySpinner />;
 
     return (
         <div

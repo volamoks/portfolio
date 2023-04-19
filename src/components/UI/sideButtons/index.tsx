@@ -10,15 +10,16 @@ export const SideButtons = () => {
     const router = useRouter();
 
     const handleGoTo = (url: string) => {
-        if (!router.asPath.split('/')[1] || router.asPath === '/#project') {
-            router.push('/#' + url);
-        }
+        // if (router.asPath !== '/#projects') {
+        //     console.log(router.asPath);
+        //     router.push('/#' + url);
+        // }
         handleGoToById(url);
     };
 
     const redButton = (
         <button
-            onClick={() => handleGoToById('projects')}
+            onClick={() => handleGoTo('projects')}
             className=" bg-red-500 flex items-center justify-center left-0 top-1/2 w-20 h-20 hover:w-full  group transition-all duration-700 z-10"
         >
             <GoProject
@@ -33,7 +34,7 @@ export const SideButtons = () => {
 
     const whiteButton = (
         <button
-            onClick={() => handleGoToById('contacts')}
+            onClick={() => handleGoTo('contacts')}
             className="flex items-center justify-center left-0 top-1/2 w-20 h-20 hover:w-full bg-white group transition-all duration-700"
         >
             <AiOutlineMessage
