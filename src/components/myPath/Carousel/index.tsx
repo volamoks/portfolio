@@ -9,7 +9,7 @@ import { useGoToPage } from '@/hooks/useGoToPage';
 export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
     const { handleGoToPage } = useGoToPage();
     const carousel = (
-        <div className="h-[90vh] w-screen relative">
+        <div className="h-full w-screen relative overflow-y-hidden">
             <h1 className="uppercase text-4xl text-center font-bold pt-4">
                 My Path to WebDev<span className="text-red-500 ">_</span>
             </h1>
