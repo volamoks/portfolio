@@ -44,17 +44,17 @@ export const ProjectTable = () => {
         componentInView ? 'translate-y-0 opacity-1' : 'translate-y-[30vh] opacity-0';
 
     return (
-        <div className="min-h-screen py-12">
+        <div
+            id="projects"
+            className="min-h-screen py-12"
+        >
             <div
                 id="filters"
                 className={` transition-all duration-700 ${transitionClasses(
                     filtersInView || projectsInView,
                 )}`}
             >
-                <h1
-                    id="projects"
-                    className=" py-12 xl:text-5xl  text-4xl font-bold text-center uppercase"
-                >
+                <h1 className=" py-12 xl:text-5xl  text-4xl font-bold text-center uppercase">
                     My works. To show what i can do
                     <Underscore />
                 </h1>
