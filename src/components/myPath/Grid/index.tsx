@@ -26,7 +26,7 @@ export const Grid = ({ projects }: { projects: IProjectData[] }) => {
                     >
                         <div className={` pl-12 grid gap-4 ${i % 2 === 0 ? 'hidden' : ''}`}>
                             <h1
-                                dangerouslySetInnerHTML={{ __html: item.name }}
+                                dangerouslySetInnerHTML={{ __html: item.title }}
                                 className="text-3xl uppercase font-bold py-12 "
                             >
                                 {/* {i + 1}.{item.name} */}
@@ -59,7 +59,7 @@ export const Grid = ({ projects }: { projects: IProjectData[] }) => {
                             className={` w-[80%] pl-12 grid gap-4  ${i % 2 === 0 ? '' : 'hidden'}`}
                         >
                             <h1
-                                dangerouslySetInnerHTML={{ __html: item.title }}
+                                dangerouslySetInnerHTML={{ __html: item.name }}
                                 className="text-3xl uppercase font-bold py-12 "
                             ></h1>
                             <div className="flex gap-2">
