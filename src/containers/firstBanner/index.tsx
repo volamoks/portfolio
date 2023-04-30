@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Glitch } from '../UI/glitch';
+import { Glitch } from '../../components/UI/glitch';
 
 import { UseScrollDirections } from '@/hooks/useScrollDirection';
 import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
-import { Header } from '../header/header';
-import { Underscore } from '../UI/underscore';
+import { Header } from '../../components/header/header';
+import { Underscore } from '../../components/UI/underscore';
 import { useNavigateById } from '@/hooks/useNavigateById';
 
 export const FirstBanner = () => {

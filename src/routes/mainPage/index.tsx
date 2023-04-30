@@ -1,10 +1,10 @@
-import { Contacts } from '../contacts';
-import { FirstBanner } from '../firstBanner';
-import { Greetings } from '../greetings';
-import { Layout } from '../layout';
-import { ProjectTable } from '../projectsTable';
+import { Contacts } from '../../components/contacts';
+import { FirstBanner } from '../../containers/firstBanner';
+import { Greetings } from '../../containers/greetings';
+import { Layout } from '../../components/layout';
+import { ProjectTable } from '../../containers/projectsTable';
 
-import { MyPath } from '../myPath';
+import { MyPath } from '../../containers/myPath';
 
 import { nanoid } from '@reduxjs/toolkit';
 

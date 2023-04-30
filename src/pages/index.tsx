@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import styles from '@/styles/Home.module.css';
-import { MainPage } from '@/components/mainPage';
+import { MainPage } from '@/routes/mainPage';
 import { createContext } from 'react';
 
 import { DarkModeProvider } from '@/components/darkModeProvider';

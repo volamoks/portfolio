@@ -116,7 +116,7 @@
     "path": [
         {
             "id": 51,
-            "name": "1. My 'Hello world!' but app",
+            "name": "Chapter 1. My 'Hello world!' but app",
             "title": "Pig game",
             "github": "https://github.com/volamoks/PigGame",
             "web_link": "https://pig-gamel.vercel.app/",
@@ -128,7 +128,7 @@
         },
         {
             "id": 32,
-            "name": "2. First date with React and Redux",
+            "name": "Chapter 2. First date with React and Redux",
             "title": "Heroes panel",
             "github": "https://github.com/volamoks/admin_panel",
             "web_link": "https://heroes-panel-app.vercel.app/",
@@ -140,7 +140,7 @@
         },
         {
             "id": 22,
-            "name": "3. Fall in love with TypeScript❤️",
+            "name": "Chapter 3. Fall in love with TypeScript❤️",
             "title": "One Music",
             "github": "https://github.com/volamoks/oneMusic",
             "web_link": "https://one-music-six.vercel.app/featured-playlists",
@@ -152,7 +152,7 @@
         },
         {
             "id": 73,
-            "name": "4. I Came Looking For Copper And I Found <s> Gold </s> Next.js",
+            "name": "Chapter 4. I Came Looking For Copper And I Found <s> Gold </s> Next.js",
             "title": "E-commerce",
             "github": "https://github.com/volamoks/GuessMyNumber",
             "web_link": "https://asos-next.vercel.app/",

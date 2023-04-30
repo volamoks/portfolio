@@ -41,7 +41,7 @@ export const FilterButtons = ({
         ));
 
     return (
-        <div className="hidden relative lg:flex  w-[100vw] bg-gray-500 dark:bg-gray-600 mb-1">
+        <div className="hidden relative lg:flex  w-[100vw] bg-gray-500 dark:bg-gray-600 mb-1 transition-all">
             {filterButtons(filteredData)}
         </div>
     );

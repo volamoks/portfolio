@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { TypingText } from '../UI/typingTextEffect';
+import { TypingText } from '../../components/UI/typingTextEffect';
 import { useComponentInView } from '@/hooks/useComponentInView';
 
 export const Greetings = () => {

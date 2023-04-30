@@ -1,4 +1,4 @@
-import { RelatedProjects } from './../components/relatedProjects/index';
+import { RelatedProjects } from '../containers/relatedProjects/index';
 import React from 'react';
 import { SideBar } from '../components/sidebar/index';
 

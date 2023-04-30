@@ -14,16 +14,6 @@ interface IRelatedProjects {
 export const RelatedProjects = ({ id, handleGoToRelated }: IRelatedProjects) => {
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
 
-    const { handleGoToPage } = useGoToPage();
-    const { handleGoToById } = useNavigateById();
-
-    // const handleGoToRelated = (id: string) => {
-    //     handleGoToPage('/' + id);
-    //     document
-    //         .getElementById('project_header')
-    //         .scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    // };
-
     if (isLoading) return <Spinner />;
 
     const relatedProjects = data

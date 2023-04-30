@@ -1,9 +1,9 @@
 import { useComponentInView } from '@/hooks/useComponentInView';
 import { useFetchData } from '@/hooks/useLocalData';
-import { MyCarousel } from './Carousel';
-import { Grid } from './Grid';
+import { MyCarousel } from '../../components/carousel';
 
 import { IProjectData } from '@/types';
+import { Grid } from '@/components/projectsGrid';
 
 export const MyPath = () => {
     const isInView = useComponentInView('myPath');

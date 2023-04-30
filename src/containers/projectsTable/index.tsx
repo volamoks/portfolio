@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 import { useComponentInView } from '@/hooks/useComponentInView';
 import { useFetchData } from '@/hooks/useLocalData';
 
-import { FilterButtons } from '../filter/filterButtons';
-import { ProjectCard } from '../projectCard';
-import { Underscore } from '../UI/underscore';
+import { FilterButtons } from '../../components/filter/filterButtons';
+import { ProjectCard } from '../../components/singleProjectCard';
+import { Underscore } from '../../components/UI/underscore';
 
 import { IProjectData, IRefProps } from '../../types';
 import { useSetFilter } from '@/hooks/useSetFilter';
-import { Filters } from '../filter';
+import { Filters } from '../../components/filter';
 
 export const ProjectTable = () => {
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
@@ -60,8 +60,7 @@ export const ProjectTable = () => {
                 </h1>
 
                 <h2 className="text-center italic text-xl w-full xl:w-1/3 mx-auto ">
-                    Ignite the world with your strikingly showcased art using Haar’s beautifully
-                    crafted, easily customizable homepages.
+                    You can filter projects by frameworks and technologies used in them.
                 </h2>
 
                 <Filters

@@ -7,17 +7,15 @@ import { Carousel, Spinner } from 'flowbite-react';
 
 import { Layout } from '@/components/layout';
 import { Header } from '@/components/header/header';
-import { RelatedProjects } from '@/components/relatedProjects';
+import { RelatedProjects } from '@/containers/relatedProjects';
 import { FrameworksIcons } from '@/components/UI/frameworksIcons';
 
 import { useFetchData } from '@/hooks/useLocalData';
-import { useNavigateById } from '@/hooks/useNavigateById';
 import { SiGithub } from 'react-icons/si';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import { TbWorldWww } from 'react-icons/tb';
 
 import { IProjectData } from '@/types';
-import { useGoToPage } from '@/hooks/useGoToPage';
 
 export const ProjectPage: FC = () => {
     const router = useRouter();
