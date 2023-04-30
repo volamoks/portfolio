@@ -5,19 +5,24 @@ import Image from 'next/image';
 import { IProjectData } from '@/types';
 import { FrameworksIcons } from '@/components/UI/frameworksIcons';
 import { useGoToPage } from '@/hooks/useGoToPage';
+import { useComponentInView } from '@/hooks/useComponentInView';
 
 export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
+    const isComponentInView = useComponentInView('carousel');
     const { handleGoToPage } = useGoToPage();
     const carousel = (
-        <div className="h-full w-screen relative overflow-y-hidden">
+        <div
+            id="carousel"
+            className="h-full w-screen relative overflow-y-hidden mb-2"
+        >
             <h1 className="uppercase text-4xl text-center font-bold pt-4">
-                My Path to WebDev<span className="text-red-500 ">_</span>
+                My Path milestones<span className="text-red-500  ">_</span>
             </h1>
             <Carousel slideInterval={5000}>
                 {projects.map((item, i) => (
                     <div
                         key={item.id}
-                        onClick={() => handleGoToPage('/' + item.name)}
+                        onClick={() => handleGoToPage('/' + item.title)}
                         className="w-screen relative flex flex-col justify-start "
                     >
                         <Image
@@ -27,8 +32,11 @@ export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
                             height={700}
                         ></Image>
                         <div className="px-4 py-12 grid gap-8">
-                            <h1 className="uppercase text-3xl text-start font-bold ">
-                                {i + 1}.{item.name}
+                            <h1
+                                dangerouslySetInnerHTML={{ __html: item.name }}
+                                className="uppercase text-3xl text-start font-bold "
+                            >
+                                {/* {i + 1} */}
                             </h1>
                             <div className="flex gap-4">
                                 <FrameworksIcons
@@ -36,7 +44,10 @@ export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
                                     iconsSize={40}
                                 />
                             </div>
-                            <div className="text-xl text-start  ">{item.about}</div>
+                            <div
+                                dangerouslySetInnerHTML={{ __html: item.description }}
+                                className="text-xl text-start  "
+                            ></div>
                         </div>
                     </div>
                 ))}

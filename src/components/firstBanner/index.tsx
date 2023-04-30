@@ -41,7 +41,7 @@ export const FirstBanner = () => {
     );
 
     return (
-        <>
+        <div className="sticky">
             <Header />
             <div
                 id="first"
@@ -56,6 +56,6 @@ export const FirstBanner = () => {
                     <MdOutlineKeyboardDoubleArrowDown size={40} />
                 </button>
             </div>
-        </>
+        </div>
     );
 };

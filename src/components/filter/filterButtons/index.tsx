@@ -14,25 +14,34 @@ export const FilterButtons = ({
 }: IFilterButtons) => {
     const filterButtons = (arr: iFilterArray[]) =>
         arr?.map((filter, i) => (
-            <motion.div
+            <div
                 key={filter.id}
-                animate
-                className=""
+                className="group font-bold text-xl grid  justify-center"
             >
-                <button
-                    className={`w-24 h-24  uppercase text-xl font-bold p-2 flex justify-center items-center hover:scale-125 transition-all ${
-                        propsFilter === filter.name.toLowerCase() ? 'bg-red-500 text-white' : '  '
-                    }`}
-                    key={filter.id}
-                    onClick={() => handleSetFilter(filter.name.toLowerCase())}
+                <motion.div
+                    animate
+                    className="group"
                 >
-                    {filter.component}
-                </button>
-            </motion.div>
+                    <button
+                        className={`w-24 h-24  uppercase text-xl font-bold p-2 grid justify-center  group items-center hover:scale-125 transition-all ${
+                            propsFilter === filter.name.toLowerCase()
+                                ? 'bg-red-500 text-white'
+                                : '  '
+                        }`}
+                        key={filter.id}
+                        onClick={() => handleSetFilter(filter.name.toLowerCase())}
+                    >
+                        {filter.component}
+                    </button>
+                </motion.div>
+                <span className="hidden group-hover:flex transition-all self-center top-0 text-center mx-auto">
+                    {filter.name}
+                </span>
+            </div>
         ));
 
     return (
-        <div className="hidden lg:flex  w-[100vw] bg-gray-500 dark:bg-gray-600 mb-1">
+        <div className="hidden relative lg:flex  w-[100vw] bg-gray-500 dark:bg-gray-600 mb-1">
             {filterButtons(filteredData)}
         </div>
     );

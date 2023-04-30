@@ -71,7 +71,7 @@ export const ProjectTable = () => {
             </div>
 
             <motion.div
-                className={`grid min-h-screen xl:h-screen md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 px-6 transition-all duration-700 ${transitionClasses(
+                className={`grid min-h-screen xl:min-h-screen md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 px-6 transition-all duration-700 ${transitionClasses(
                     projectsInView,
                 )}`}
             >

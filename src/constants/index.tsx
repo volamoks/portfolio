@@ -17,6 +17,8 @@ import {
     SiTwitter,
     SiWhatsapp,
     SiPrisma,
+    SiTrpc,
+    SiLinkedin,
 } from 'react-icons/si';
 import { IData, IIcon } from '../types';
 
@@ -78,6 +80,7 @@ export const icons1 = (size = 30) => [
     { id: 12, name: 'MongoDB', component: <SiMongodb size={size} /> },
     { id: 13, name: 'GraphQL', component: <SiGraphql size={size} /> },
     { id: 14, name: 'Prisma', component: <SiPrisma size={size} /> },
+    { id: 15, name: 'tRPC', component: <SiTrpc size={size} /> },
 ];
 
 export const icons2 = (size = 30) => [
@@ -91,6 +94,7 @@ export const icons2 = (size = 30) => [
 export const icons3 = (size = 30) => [
     { id: 1, name: 'MongoDB', component: <SiMongodb size={size} /> },
     { id: 2, name: 'GraphQL', component: <SiGraphql size={size} /> },
+    { id: 3, name: 'tRPC', component: <SiTrpc size={size} /> },
 ];
 
 export const filterGroup = (iconsSize: number) => [
@@ -138,11 +142,16 @@ export const contactsIcons = [
         component: <SiGithub size={30} />,
     },
     {
+        id: 4,
+        name: 'LinkedIn',
+        link: 'https://www.linkedin.com/in/saidabror-komalov-01a4a2273/',
+        component: <SiLinkedin size={30} />,
+    },
+    {
         id: 2,
         name: 'Twitter',
         link: 'https://twitter.com/abrorium',
         component: <SiTwitter size={30} />,
     },
     { id: 3, name: 'Telegram', link: 'https://t.me/volamoks', component: <SiTelegram size={30} /> },
-    // { id: 4, name: 'Whatsapp', link: '', component: <SiWhatsapp size={30} /> },
 ];

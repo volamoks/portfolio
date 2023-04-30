@@ -10,7 +10,7 @@ export const Greetings = () => {
     return (
         <div
             id="greeting"
-            className=" min-h-screen grid  items-center justify-center gap-4 p-4"
+            className=" sticky min-h-screen grid  items-center justify-center gap-4 p-4"
         >
             <div className=" flex flex-col gap-8 self-end">
                 <div
@@ -20,8 +20,20 @@ export const Greetings = () => {
                     {isComponentInView && <TypingText />}
                 </div>
                 <div className=" text-xl italic w-1/2">
-                    All you need to create the perfect exhibition room that every designer, artist
-                    and illustrator dreams of.
+                    <div className="grid gap-2">
+                        <div>
+                            Have a strong passion for creating beautiful and functional user
+                            interfaces and web applications.
+                        </div>
+                        <div>
+                            Expertise includes working with modern front-end technologies such as
+                            TypeScript, Tailwind CSS, React + Redux and Next.js.
+                        </div>
+                        <div>
+                            Quick learner, a team player, seeking new opportunities to further
+                            develop my skills and contribute to meaningful projects.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="bg-red-500 text-white font-bold text-xl text-center xl:hover:scale-110 w-1/3 xl:w-1/5 p-4 transition-all">

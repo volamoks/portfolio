@@ -23,14 +23,11 @@ export const ProjectPage: FC = () => {
     const router = useRouter();
     const projectName = router.asPath.split('/')[1].replace(/%20/g, ' ');
     const { data, isLoading, error } = useFetchData<IProjectData>('/api/localDataProjects');
-    const { handleGoToPage } = useGoToPage();
+
     const myRef = useRef<HTMLInputElement>(null);
 
-    const currentProject = data.filter(item => item.name === projectName)[0];
+    const currentProject = data?.filter(item => item.name === projectName)[0];
 
-    const handleGoto = () => {
-        router.push('/#projects');
-    };
     const handleGoToRelated = (name: string) => {
         router.push('/' + name);
         myRef?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -38,6 +35,7 @@ export const ProjectPage: FC = () => {
 
     if (isLoading) return <Spinner />;
     if (error) return <div>{error}</div>;
+    if (!currentProject) return <div>Some Error</div>;
 
     const desktopImages = currentProject?.images?.map((image, i) => (
         <div
@@ -68,13 +66,13 @@ export const ProjectPage: FC = () => {
                 <div className="flex gap-2 ">
                     <Link
                         className="hover:scale-125 transition-all"
-                        href={currentProject.web_link}
+                        href={currentProject?.web_link}
                     >
                         <TbWorldWww size={40} />
                     </Link>
                     <Link
                         className="hover:scale-125 transition-all"
-                        href={currentProject.github}
+                        href={currentProject?.github}
                     >
                         <SiGithub size={40} />
                     </Link>

@@ -60,6 +60,7 @@ export interface IRefsInContext {
 export interface IProjectData {
     id: number;
     name: string;
+    title: string;
     github: string;
     web_link: string;
     isResponsive: false;

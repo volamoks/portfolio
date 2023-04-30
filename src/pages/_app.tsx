@@ -8,6 +8,7 @@ import { Poppins } from 'next/font/google';
 import { StrictMode } from 'react';
 import React from 'react';
 import { DarkModeProvider } from '@/components/darkModeProvider';
+import Head from 'next/head';
 
 const poppins = Poppins({
     subsets: ['latin'],
