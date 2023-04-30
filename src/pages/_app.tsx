@@ -1,14 +1,14 @@
-import '@/styles/styles.css';
+import { StrictMode } from 'react';
 
-import { store } from '@/utils/store/store';
-import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
+import { store } from '@/utils/store/store';
+
+import type { AppProps } from 'next/app';
 import { Poppins } from 'next/font/google';
 
-import { StrictMode } from 'react';
-import React from 'react';
 import { DarkModeProvider } from '@/components/darkModeProvider';
-import Head from 'next/head';
+
+import '@/styles/styles.css';
 
 const poppins = Poppins({
     subsets: ['latin'],

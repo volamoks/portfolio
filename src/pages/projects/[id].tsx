@@ -1,6 +1,4 @@
-import { MyProject } from '@/containers/myProjects';
-import { ProjectPage } from '@/containers/project';
-import React from 'react';
+import { ProjectPage } from '@/routes/project';
 
 export default function Project() {
     return (

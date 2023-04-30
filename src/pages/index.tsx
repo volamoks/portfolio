@@ -1,10 +1,10 @@
+import { createContext } from 'react';
 import Head from 'next/head';
 
-import styles from '@/styles/Home.module.css';
 import { MainPage } from '@/routes/mainPage';
-import { createContext } from 'react';
-
 import { DarkModeProvider } from '@/components/darkModeProvider';
+
+import styles from '@/styles/Home.module.css';
 
 export const DarkModeContext = createContext<ICreateContext | null>(null);
 
@@ -20,7 +20,7 @@ export default function Home() {
                 <title>My Portfolio</title>
                 <meta
                     name="description"
-                    content="Saidbaror's Portfolio"
+                    content="Saidabror's Portfolio"
                 />
                 <meta
                     name="viewport"

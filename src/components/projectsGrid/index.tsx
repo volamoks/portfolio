@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+
 import { IProjectData } from '@/types';
 import { FrameworksIcons } from '@/components/UI/frameworksIcons';
 import { useGoToPage } from '@/hooks/useGoToPage';

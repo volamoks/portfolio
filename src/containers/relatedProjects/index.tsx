@@ -2,9 +2,7 @@ import { useFetchData } from '@/hooks/useLocalData';
 import { IProjectData } from '@/types';
 import React from 'react';
 import Image from 'next/image';
-import { useGoToPage } from '@/hooks/useGoToPage';
 import { Spinner } from 'flowbite-react';
-import { useNavigateById } from '@/hooks/useNavigateById';
 
 interface IRelatedProjects {
     id: number;

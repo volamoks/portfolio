@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { useNavigateById } from '@/hooks/useNavigateById';
+
+import { DarkModeBtn } from '../UI/darkModeButton';
 import { SideButtons } from '../UI/sideButtons';
 import { SideBar } from '../sidebar';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
-import { DarkModeBtn } from '../UI/darkModeButton';
-import { useGoToPage } from '@/hooks/useGoToPage';
-import { useNavigateById } from '@/hooks/useNavigateById';
 
 export const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
