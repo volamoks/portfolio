@@ -13,9 +13,9 @@ export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
     const carousel = (
         <div
             id="carousel"
-            className="h-full w-screen relative overflow-y-hidden mb-2"
+            className="h-full w-screen relative overflow-y-hidden mb-2 "
         >
-            <h1 className="uppercase text-4xl text-center font-bold pt-4">
+            <h1 className="uppercase text-4xl text-center font-bold pt-4 full">
                 My Path milestones<span className="text-red-500  ">_</span>
             </h1>
             <Carousel slideInterval={5000}>
@@ -46,7 +46,7 @@ export const MyCarousel = ({ projects }: { projects: IProjectData[] }) => {
                             </div>
                             <div
                                 dangerouslySetInnerHTML={{ __html: item.description }}
-                                className="text-xl text-start  "
+                                className="text-xl text-start w-3/4 "
                             ></div>
                         </div>
                     </div>

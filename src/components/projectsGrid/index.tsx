@@ -38,7 +38,7 @@ export const Grid = ({ projects }: { projects: IProjectData[] }) => {
                             {/* <div className="text-xl w-3/4">{item.about}</div> */}
                             <div
                                 dangerouslySetInnerHTML={{ __html: item.description }}
-                                className="text-xl w-4/5"
+                                className="text-xl w-3/4"
                             >
                                 {/* {item.description} */}
                             </div>
@@ -52,8 +52,8 @@ export const Grid = ({ projects }: { projects: IProjectData[] }) => {
                             <Image
                                 alt={item.name}
                                 src={'/' + item.images[0]}
-                                width={820}
-                                height={700}
+                                width={800}
+                                height={680}
                             ></Image>
                         </div>
                         <div
@@ -76,5 +76,11 @@ export const Grid = ({ projects }: { projects: IProjectData[] }) => {
                 ))}
         </>
     );
-    return <div className={` hidden w-full lg:grid relative py-8 transition-all `}>{gridView}</div>;
+    return (
+        <div
+            className={` hidden w-full lg:grid relative py-8 transition-all xl:overflow-x-hidden `}
+        >
+            {gridView}
+        </div>
+    );
 };
