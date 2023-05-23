@@ -7,7 +7,7 @@ import type { AppProps } from 'next/app';
 import { Poppins } from 'next/font/google';
 
 import { DarkModeProvider } from '@/components/darkModeProvider';
-
+import { Analytics } from '@vercel/analytics/react';
 import '@/styles/styles.css';
 
 const poppins = Poppins({
@@ -22,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <Provider store={store}>
                     <DarkModeProvider>
                         <Component {...pageProps} />
+                        <Analytics />
                     </DarkModeProvider>
                 </Provider>
             </main>
