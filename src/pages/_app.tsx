@@ -6,8 +6,8 @@ import { store } from '@/utils/store/store';
 import type { AppProps } from 'next/app';
 import { Poppins } from 'next/font/google';
 
-import { DarkModeProvider } from '@/components/darkModeProvider';
-import { Analytics } from '@vercel/analytics/react'
+import { DarkModeProvider } from '@/providers/darkModeProvider';
+import { Analytics } from '@vercel/analytics/react';
 import '@/styles/styles.css';
 
 const poppins = Poppins({

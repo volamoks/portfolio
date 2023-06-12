@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 import Head from 'next/head';
 
-import { MainPage } from '@/routes/mainPage';
-import { DarkModeProvider } from '@/components/darkModeProvider';
+import { MainPage } from '@/routes/mainPage/MainPage';
+import { DarkModeProvider } from '@/providers/darkModeProvider';
 
 import styles from '@/styles/Home.module.css';
 

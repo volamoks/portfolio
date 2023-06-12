@@ -155,3 +155,11 @@ export const contactsIcons = [
     },
     { id: 3, name: 'Telegram', link: 'https://t.me/volamoks', component: <SiTelegram size={30} /> },
 ];
+
+export const greetingData = [
+    ' Have a strong passion for creating beautiful and functional user interfaces and web applications.',
+
+    '  Expertise includes working with modern front-end technologies such as TypeScript, Tailwind CSS, React + Redux and Next.js.',
+
+    ' Quick learner, a team player, seeking new opportunities to further develop my skills and contribute to meaningful projects.',
+];
